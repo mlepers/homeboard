@@ -10,7 +10,8 @@ Une plateforme unique agrégeant la connaissance mutuelle (en connectant les opp
 
 ```
 git clone git@github.com:mick-sudo/homeboard.git
-cd homeboard
+cd homeboard 
+touch .env
 bundle install
 yarn install
 rails db:drop db:create db:migrate db:seeds
@@ -22,9 +23,9 @@ rails db:drop db:create db:migrate db:seeds
 
 ## links
 
-[lien figma](https://www.figma.com/proto/ETHs1rgbFEnY64NVVrvfJm/Homeboard?node-id=1%3A2)
-[Trello](https://trello.com/b/QBObGjcY/homeboard)
-[bdd](https://kitt.lewagon.com/db/14069)
+- [lien figma](https://www.figma.com/proto/ETHs1rgbFEnY64NVVrvfJm/Homeboard?node-id=1%3A2)
+- [Trello](https://trello.com/b/QBObGjcY/homeboard)
+- [bdd](https://kitt.lewagon.com/db/14069)
 
 ## add
 
