@@ -1,7 +1,30 @@
-<h1>Services</h1>
+<div class="container"><h1 class="text-center">Services</h1>
 
-<% @services.each do |service| %>
-  <%= link_to service.title, service_path(service) %>
-<% end %>
+<div class="grid-services">
+  <% @services.each do |service| %>
+    <div class="grid-col-services">
+      <div class="card-service">
+      <% if service.category == "offer" %>
+        <div class="card-service-offer">
+        </div>
+      <% else %>
+        <div class="card-service-demand">
+        </div>
+      <% end %>
+        <div class="card-service-avatar">
+        </div>
+        <div class="card-service-text">
+          <div class="card-service-title">
+            <%= link_to service.title, service_path(service), class: 'without-decoration' %>
+          </div>
+          <div class="card-service-body">
+            by <%= service.user.pseudo %> - <%= service.created_at.strftime("%F") %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to "Create new service", new_service_path %>
+</div>
