@@ -1,12 +1,38 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.navlink {
+  color: $black-homeboard;
+  margin-right: 25px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navlink:hover {
+  color: $green-homeboard;
+  font-weight: bold;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.addbutton-navbar {
+  background-color: $grey-homeboard;
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: $black-homeboard;
+  margin-right: 20px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.addbutton-navbar:hover {
+  background-color: $green-homeboard;
+  color: white;
+}
+
+.searchbutton-navbar {
+  color: $black-homeboard;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: blue;
+  border-color: red;
+}
+
+.searchbutton-navbar:hover {
+  color: $green-homeboard;
 }
