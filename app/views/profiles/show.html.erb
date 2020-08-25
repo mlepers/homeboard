@@ -1,74 +1,84 @@
 
-<% if current_user == @user %>
-    <h1>Mon profil</h1>
-<%else  %>
-    <h1>Mon voisin</h1>
-<% end %>
+<div class="container">
+    <% if current_user == @user %>
+        <h1 class="text-center">Mon profil</h1>
+    <%else  %>
+        <h1 class="text-center">Mon voisin</h1>
+    <% end %>
 
 
 
-<p>
-    
-    <% if @user.photo.attachment.nil? %>
-        <%= image_tag('Avatar_default.jpeg', width: 170, height: 200, crop:"fill") %>
-    <% else %>
-        <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill %>
+    <p>
+        <div class="text-center">
+            <% if @user.photo.attachment.nil? %>
+                <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "avatar-profile-show") %>
+            <% else %>
+                <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill, class: "avatar-profile-show"%>
+            <% end %>
+        </div>
+        
+        <h2 class="text-center mt-2"><%= @user.first_name %> <%= @user.last_name %> </h2>
+        <p class="text-center"><%= @user.pseudo %></p>
+        <p class="text-center"><strong>email: </strong><%= @user.email %> </p>
+        <p class="text-center">___</p>
+        <p class="text-center">
+            <strong>Description: </strong> 
+            <% if @user.description.nil? %>
+                to be completed...
+            <%else  %>
+                <p class="font-italic text-center"><%= @user.description %></p>
+            <%end  %>
+        </p>
+       
+    </p>
+    <p>
+        <% if current_user == @user %>  
+            <p class="text-center"><%= link_to 'Edit profile', edit_profile_path, class: "button-grey-t"%></p>    
+        <%end%>
+    </p>
+
+     <p> <strong>Residence : </strong> <%=@user.residence.name%> <%=@user.residence.address%> </p>
+
+    <% if current_user == @user %>
+        <p><%= link_to "Residence infos", residence_path(@user.residence.id), class: "button-green-t" %></p>
     <% end %>
     
-    
-  
-       
-    First name: <%= @user.first_name %> |
-    Last name: <%= @user.last_name %> |
-    Pseudo: <%= @user.pseudo %> |
-    Email: <%= @user.email %> |
 
-    Description: 
-    <% if @user.description.nil? %>
-        to be completed...
-    <%else  %>
-        <%= @user.description %>
-    <%end  %>
-</p>
-<p>
-    <% if current_user == @user %>
-        <%= link_to 'edit profile', edit_profile_path%>    
+    <% if @user.services.count == 0 %>
+        <h5 class="mt-4 mb-3">Pas d'annonces...</h5>
+    <%elsif @user.services.count == 1%>
+        <h5 class="mt-4 mb-3">1 annonce publiée</h5>
+    <% else %>
+        <h5 class="mt-4 mb-3"> <%= @user.services.count %> annonces publiées </h5>  
+    <% end %>
+
+    <%@user.services.each do |service|%>
+        <%= link_to service_path(service), class: "without-decoration" do%>  
+            <div class="card-service mb-3">
+                <% if service.category == "offer" %>
+                    <div class="card-service-offer">
+                    </div>
+                <% else %>
+                    <div class="card-service-demand">
+                    </div>
+                <% end %>
+                <div class="card-service-avatar">
+                </div>
+                <div class="card-service-text">
+                    <div class="card-service-title">
+                        <%= service.title %>
+                    </div>
+                    <div class="card-service-body">
+                    | from: <%= service.start_at %> to <%= service.end_at %> | category : <%= service.category %> 
+                    </div> 
+                </div>    
+            </div>
+        <% end %>
+        
+
+        
     <%end%>
-</p>
-
-<p>_____________</p>
-<p>Ma résidence</p>
-<%= link_to @user.residence.name, residence_path(@user.residence.id) %>
-<%=@user.residence.address%>
-
-
-
-
-
-<p>_____________</p>
-
-<% if @user.services.count == 0 %>
-    <h5>Pas d'annonces...</h5>
-<%elsif @user.services.count == 1%>
-    <h5>1 annonce publiée</h5>
-<% else %>
-    <h5> <%= @user.services.count %> annonces publiées </h5>
-    
-<% end %>
-
-
-<%@user.services.each do |service|%>
-    <p>
-        <%= service.title %> 
-        | from: <%= service.start_at %> to <%= service.end_at %> |
-        category : <%= service.category %> 
-        <%= link_to 'more details', service_path(service)%>  
-        <% if current_user == @user %>
-            <%= link_to 'edit this service', edit_service_path(service)%>    
-        <%end%>
-
-    </p>
-<%end%>
+</div>
 
 
 
