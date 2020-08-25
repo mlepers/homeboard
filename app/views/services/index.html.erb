@@ -1,0 +1,7 @@
+<h1>Services</h1>
+
+<% @services.each do |service| %>
+  <%= link_to service.title, service_path(service) %>
+<% end %>
+
+<%= link_to "Create new service", new_service_path %>
