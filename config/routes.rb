@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     resources :comments, only: [ :create ]
   end
 
-  resources :residences, only: [ :show ] do
-    get '/profiles', to: 'profiles#index'
-    get '/profiles/:id', to: 'profiles#show'
-  end
+  resources :residences, only: [ :show ]
+  get '/profiles', to: 'profiles#index'
+  get '/profiles/:id', to: 'profiles#show', as: :profile
+  get 'profiles/:id/edit', to: 'profiles#edit', as: :edit_profile
+  patch '/profiles/:id', to: 'profiles#update'
+  
 end
