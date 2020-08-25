@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroy all data"
 
-Residence.destroy_all
-User.destroy_all
-Service.destroy_all
 Comment.destroy_all
+Service.destroy_all
+User.destroy_all
+Residence.destroy_all
 
 puts "Creating a residence ..."
 
@@ -18,10 +18,10 @@ notre_residence = Residence.create!(name: "My Residence", address: "2 avenue des
 
 puts "Creating Users ..."
 
-maxence = User.create!(first_name: "Maxence", last_name: "Lenoir", email: "maxence@lewagon.org", residence: notre_residence)
-marie = User.create!(first_name: "Marie", last_name: "Lepers", email: "marie@lewagon.org", residence: notre_residence)
-mickael = User.create!(first_name: "Mickael", last_name: "Joseph", email: "mickael@lewagon.org", residence: notre_residence)
-thomas = User.create!(first_name: "Thomas", last_name: "Quetu", email: "thomas@lewagon.org", residence: notre_residence)
+maxence = User.create!(first_name: "Maxence", last_name: "Lenoir", pseudo: "max", email: "maxence@lewagon.org", residence: notre_residence, password: "azerty")
+marie = User.create!(first_name: "Marie", last_name: "Lepers", pseudo: "marie", email: "marie@lewagon.org", residence: notre_residence, password: "azerty")
+mickael = User.create!(first_name: "Mickael", last_name: "Joseph", pseudo: "micka", email: "mickael@lewagon.org", residence: notre_residence, password: "azerty")
+thomas = User.create!(first_name: "Thomas", last_name: "Quetu", pseudo: "thom", email: "thomas@lewagon.org", residence: notre_residence, password: "azerty")
 
 puts "Creating Services ..."
 

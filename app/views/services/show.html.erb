@@ -6,5 +6,5 @@
     <%= comment.description %>
   <% end %>
 <% end %>
-<%= link_to "Update", services_path(@service), method: :patch %>
-<%= link_to "Delete", services_path(@service), method: :delete, data: {confirm: "Are you sure ?"} %>
+<%= link_to "Update", service_path(@service), method: :patch %>
+<%= link_to "Delete", service_path(@service), method: :delete, data: {confirm: "Are you sure ?"} %>

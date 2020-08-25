@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_202512) do
 ActiveRecord::Schema.define(version: 2020_08_25_091458) do
 
   # These are extensions that must be enabled in order to support this database
@@ -26,6 +25,13 @@ ActiveRecord::Schema.define(version: 2020_08_25_091458) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "residences", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -36,13 +42,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_091458) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_services_on_user_id"
-  end
-
-  create_table "residences", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
