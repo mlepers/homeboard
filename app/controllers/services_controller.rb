@@ -8,6 +8,7 @@ class ServicesController < ApplicationController
 
   def show
     @comments = @service.comments
+    @comment = Comment.new
   end
 
   def new
@@ -50,7 +51,7 @@ class ServicesController < ApplicationController
   end
 
   def service_params
-    params.require(:service).permit(:title, :description, :category, :user)
+    params.require(:service).permit(:title, :description, :category, :user, photos: [])
   end
 
 end

@@ -1,10 +1,12 @@
 <h1> <%= @service.title %></h1>
 
-<% unless @comments.nil? %>
-  <% @comments.each do |comment| %>
-    <%= comment.title %>
-    <%= comment.description %>
-  <% end %>
-<% end %>
 <%= link_to "Update", service_path(@service), method: :patch %>
 <%= link_to "Delete", service_path(@service), method: :delete, data: {confirm: "Are you sure ?"} %>
+<% unless @comments.nil? %>
+  <% @comments.each do |comment| %>
+    <%= comment.content %>
+    by <%= comment.user.pseudo %>
+  <% end %>
+<% end %>
+
+<%= render "comments/form", service: [ @service, @comment ] %>
