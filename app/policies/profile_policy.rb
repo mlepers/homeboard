@@ -4,4 +4,9 @@ class ProfilePolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def update?
+    user == record.user
+  end
+  
 end
