@@ -1,0 +1,134 @@
+.button-red{
+  background-color: #d33e43;
+  color: white;
+  border-color: #d33e43;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-red:hover {
+  color:white;
+  background-color: rgb(224, 75, 75);
+  border-color: solid red;
+  text-decoration: none;
+}
+
+.button-grey {
+  background-color: #DADADA;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-grey:hover {
+  color:white;
+  background-color: rgb(224, 223, 223);
+  border-color: solid rgb(179, 177, 177);
+  text-decoration: none;
+}
+
+.button-green {
+  background-color: #009688;
+  color: white;
+  border-color: #015a51;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-green:hover {
+  color:white;
+  background-color: #03a090;
+  border-color: solid #015a51;
+  text-decoration: none;
+}
+
+.button-dark-grey {
+  background-color: #2c2c2c;
+  color: white;
+  border-color: #706f6f;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-dark-grey:hover {
+  color:white;
+  background-color: #4b4949;
+  border-color: solid #161616;
+  text-decoration: none;
+}
+
+.button-red-t {
+  background-color: transparent;
+  color: #d33e43;
+  border-color: #d33e43;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-red-t:hover {
+  color: white;
+  background-color: #d33e43;
+  border-color: #d33e43;
+}
+
+.button-grey-t {
+  background-color:  transparent;
+  color: #DADADA;
+  border: 1px solid;
+  border-color:#DADADA;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-grey-t:hover {
+  color: white;
+  background-color: #DADADA;
+  border-color: #DADADA;
+}
+
+.button-green-t {
+  background-color:  transparent;
+  color: #009688;
+  border: 1px solid;
+  border-color:#009688;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-green-t:hover {
+  color: white;
+  background-color: #009688;
+  border-color: #009688;
+}
+
+.button-dark-grey-t {
+  background-color:  transparent;
+  color: #2c2c2c;
+  border: 1px solid;
+  border-color:#2c2c2c;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-dark-grey-t:hover {
+  color: white;
+  background-color: #2c2c2c;
+  border-color: #2c2c2c;
+}
