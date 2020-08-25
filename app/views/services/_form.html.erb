@@ -1,4 +1,4 @@
-<%= simple_form_for(service) do |f| %>
+<%= simple_form_for(service, remote: true) do |f| %>
 <div class="container">
   <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["offer", "demand"]  %>
   <%= f.input :title %>

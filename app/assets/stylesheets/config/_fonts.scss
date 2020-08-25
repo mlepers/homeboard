@@ -5,6 +5,10 @@
 $body-font: "Baloo Tamma 2", "Helvetica", "sans-serif";
 $headers-font: "Pacifico","serif";
 
+.without-decoration {
+  text-decoration: none !important;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
