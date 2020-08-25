@@ -25,16 +25,16 @@ thomas = User.create!(first_name: "Thomas", last_name: "Quetu", pseudo: "thom", 
 
 puts "Creating Services ..."
 
-service_one = Service.create!(title: "My first announce", description: "This is a db test", start_at: Date.today, end_at: Date.today + 3, user: maxence, category: "offer")
-service_two = Service.create!(title: "My second announce", description: "This is another db test", start_at: Date.today - 5, end_at: Date.today - 2, user: thomas, category: "demand")
-service_three = Service.create!(title: "My third announce", description: "This is the third db test", start_at: Date.today - 10, end_at: Date.today - 7, user: marie, category: "offer")
-service_four = Service.create!(title: "My fourth announce", description: "This is the fourth db test", start_at: Date.today + 2, end_at: Date.today + 4, user: maxence, category: "offer")
-service_five = Service.create!(title: "My fifth announce", description: "This is the fifth db test", start_at: Date.today - 5, end_at: Date.today, user: mickael, category: "offer")
-service_six = Service.create!(title: "My sixth announce", description: "This is the sixth db test", start_at: Date.today + 5, end_at: Date.today + 12, user: thomas, category: "demand")
-service_seven = Service.create!(title: "My seventh announce", description: "This is seventh db test", start_at: Date.today - 1, end_at: Date.today, user: marie, category: "demand")
-service_eigth = Service.create!(title: "My eighth announce", description: "This is eighth db test and without date", user: thomas, category: "demand")
-service_nine = Service.create!(title: "My ninth announce", description: "This is ninth db test and also without date", user: mickael, category: "offer")
-service_ten = Service.create!(title: "My tenth announce", description: "This is tenth db test", start_at: Date.today, end_at: Date.today + 2, user: marie, category: "offer")
+service_one = Service.create!(title: "Crêpe party", description: "Je vous propose de partager un moment convivial entre voisins autour de bonnes crêpes !", start_at: Date.today, end_at: Date.today + 3, user: maxence, category: "offer")
+service_two = Service.create!(title: "Besoin d'un baby sitter", description: "Je recherche un baby-sitter pour garder ma fille ce soir à partir de 18h.", start_at: Date.today - 5, end_at: Date.today - 2, user: thomas, category: "demand")
+service_three = Service.create!(title: "PSG / Bayern", description: "Open house pour venir regarder le match sur mon grand écran ! Venez avec bières et pizzas !", start_at: Date.today - 10, end_at: Date.today - 7, user: marie, category: "offer")
+service_four = Service.create!(title: "Service de peinture", description: "Je vous propose mes talents de peintre pour refaire vos murs !", start_at: Date.today + 2, end_at: Date.today + 4, user: maxence, category: "offer")
+service_five = Service.create!(title: "Cat-sitter", description: "En tant que grand ami des chats, je vous propose de venir garder les vôtres pendant votre absence!", start_at: Date.today - 5, end_at: Date.today, user: mickael, category: "offer")
+service_six = Service.create!(title: "Qui pourrait venir nourrir mon poisson?" , description: "Je pars 2 semaines et recherche quelqu'un pour venir nourrir mon poisson rouge.", start_at: Date.today + 5, end_at: Date.today + 12, user: thomas, category: "demand")
+service_seven = Service.create!(title: "Receptionner un colis", description: "Je dois recevoir un colis la semaine prochaine, quelqu'un de dispo pour le receptionner en mon abesence? ", start_at: Date.today - 1, end_at: Date.today, user: marie, category: "demand")
+service_eigth = Service.create!(title: "M'aider à monter un canap'", description: "Quelqu'un de dispo pour m'aider à monter un canap Ikea? Bières en remerciement !", user: thomas, category: "demand")
+service_nine = Service.create!(title: "Offre de BBsitting", description: "Ma fille de 16 ans est dispo pour garder vos enfants !", user: mickael, category: "offer")
+service_ten = Service.create!(title: "Donne un lave-linge", description: "Nous changeons de lave-linge et donnons notre ancien, si cela intéresse quelqu'un!", start_at: Date.today, end_at: Date.today + 2, user: marie, category: "offer")
 
 puts "Finished"
 
