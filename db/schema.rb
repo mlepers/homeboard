@@ -15,11 +15,33 @@ ActiveRecord::Schema.define(version: 2020_08_25_091458) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_comments_on_service_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "residences", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "start_at"
+    t.date "end_at"
+    t.string "category"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +62,8 @@ ActiveRecord::Schema.define(version: 2020_08_25_091458) do
     t.index ["residence_id"], name: "index_users_on_residence_id"
   end
 
+  add_foreign_key "comments", "services"
+  add_foreign_key "comments", "users"
+  add_foreign_key "services", "users"
   add_foreign_key "users", "residences"
 end

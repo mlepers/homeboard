@@ -1,0 +1,13 @@
+<%= simple_form_for(service) do |f| %>
+<div class="container">
+  <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["offre", "demande"]  %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <i class="fas fa-calendar-week"></i>
+  <%= f.input :start_at  %>
+  <i class="fas fa-calendar-week"></i>
+  <%= f.input :end_at  %>
+  <!-- <%= f.input :photos, as: :file, input_html: { multiple: true, class: "button-select" } %> -->
+  <%= f.button :submit %>
+</div>
+<% end %>
