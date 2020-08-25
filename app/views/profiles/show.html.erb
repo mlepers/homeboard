@@ -1,0 +1,21 @@
+<h1>Mon profile</h1>
+
+<p>
+    First name: <%= @user.first_name %> |
+    Last name: <%= @user.last_name %> |
+    Pseudo: <%= @user.pseudo %> |
+    Email: <%= @user.email %> |
+
+    Description: 
+    <% if @user.description.nil? %>
+        to be completed...
+    <%else  %>
+        <%= @user.description %>
+    <%end  %>
+</p>
+
+<p>---</p>
+<p>Ma résidence</p>
+<%= link_to @user.residence.name, residence_path(@user.residence.id) %>
+<%=@user.residence.address%>
+
