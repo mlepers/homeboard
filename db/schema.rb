@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_08_25_153142) do
 
   # These are extensions that must be enabled in order to support this database
@@ -56,7 +55,6 @@ ActiveRecord::Schema.define(version: 2020_08_25_153142) do
     t.index ["service_id"], name: "index_comments_on_service_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
