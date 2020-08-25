@@ -3,7 +3,11 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @services = policy_scope(Service).order(created_at: :desc)
+    if params[:query].present?
+      @services = policy_scope(Service.search_by_title_and_description(params[:query]))
+    else
+      @services = policy_scope(Service).order(created_at: :desc)
+    end
   end
 
   def show
