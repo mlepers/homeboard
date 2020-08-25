@@ -26,6 +26,7 @@ rails db:drop db:create db:migrate db:seeds
 - [lien figma](https://www.figma.com/proto/ETHs1rgbFEnY64NVVrvfJm/Homeboard?node-id=1%3A2)
 - [Trello](https://trello.com/b/QBObGjcY/homeboard)
 - [bdd](https://kitt.lewagon.com/db/14069)
+- [spreadsheets](https://docs.google.com/spreadsheets/d/1uQmHpWcTOJ0oBg_91ao6wxLe9Mqg9thzpSSVwoxEVcI/edit#gid=0)
 
 ## add
 
