@@ -13,11 +13,15 @@
       </div>
     </div>
 
-    <div>
-      <form class="form-inline">
-        <div><input class="form-control ml-4" type="search" placeholder="Search something..." aria-label="Search"></div>
-        <div><button class="btn searchbutton-navbar" type="submit"><i class="fas fa-search"></i></button></div>
-      </form>
+    <div class="searchflex">
+        <div class="ml-3"><%= form_tag services_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a service"
+          %></div>
+          <div><%= submit_tag "🔎", class: "btn" %></div>
+      <% end %>
     </div>
 
     </div>
