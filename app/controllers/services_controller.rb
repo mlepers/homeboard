@@ -1,17 +1,18 @@
 class ServicesController < ApplicationController
 
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
     @services = policy_scope(Service).order(created_at: :desc)
   end
 
   def show
-    authorize @service
+    @comments = @service.comments
   end
 
   def new
     @service = Service.new
+    authorize @service
   end
 
   def create
@@ -34,23 +35,22 @@ class ServicesController < ApplicationController
     else
       render :edit
     end
-    authorize @service
   end
 
   def destroy
     @service.destroy
     redirect_to services_path
-    authorize @service
   end
 
   private
 
   def set_service
     @service = Service.find(params[:id])
+    authorize @service
   end
 
   def service_params
-    params.require(:service).permit(:title, :description, :category)
+    params.require(:service).permit(:title, :description, :category, :user)
   end
 
 end

@@ -1,12 +1,16 @@
-class CommentPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def create
+  def show?
     true
   end
-  
+
+  def update?
+    true
+  end
+
 end

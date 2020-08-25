@@ -1,11 +1,11 @@
-class CommentPolicy < ApplicationPolicy
+class ResidencePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def create
+  def show?
     true
   end
   
