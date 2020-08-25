@@ -1,3 +1,7 @@
+.desktop-menu-container {
+  background-color: white;
+}
+
 .navlink {
   color: $black-homeboard;
   margin-right: 25px;
@@ -35,4 +39,10 @@
 
 .searchbutton-navbar:hover {
   color: $green-homeboard;
+}
+
+@media(max-width: 1080px) {
+  .desktop-menu-container {
+    display: none;
+  }
 }

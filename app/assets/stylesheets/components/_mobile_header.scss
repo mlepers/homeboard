@@ -1,0 +1,14 @@
+.mobile-header-container {
+  padding: 20px 30px;
+  background-color: white;
+}
+
+.mobile-top-toolbar {
+  display: flex;
+}
+
+@media(min-width: 1080px) {
+  .mobile-header-container {
+    display: none;
+  }
+}
