@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     else
       render 'services/show'
     end
-    authorize @service
+    authorize @comment
   end
 
   private
