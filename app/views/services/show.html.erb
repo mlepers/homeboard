@@ -1,12 +1,21 @@
 <h1> <%= @service.title %></h1>
 
-<%= link_to "Update", service_path(@service), method: :patch %>
-<%= link_to "Delete", service_path(@service), method: :delete, data: {confirm: "Are you sure ?"} %>
+<p><%= @service.description %></p>
+<p>by <%= @service.user.pseudo %></p>
+
+<%if current_user == @service.user %>
+  <%= link_to "Update", service_path(@service), class: "button-grey-t", method: :patch %>
+  <%= link_to "Delete", service_path(@service), class: "button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
+<% end %>
+
+
 <% unless @comments.nil? %>
   <% @comments.each do |comment| %>
     <%= comment.content %>
     by <%= comment.user.pseudo %>
   <% end %>
 <% end %>
+
+
 
 <%= render "comments/form", comment: [ @service, @comment ] %>
