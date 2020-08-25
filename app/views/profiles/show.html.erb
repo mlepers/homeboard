@@ -8,6 +8,16 @@
 
 
 <p>
+    
+    <% if @user.photo.attachment.nil? %>
+        <%= image_tag('Avatar_default.jpeg', width: 170, height: 200, crop:"fill") %>
+    <% else %>
+        <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill %>
+    <% end %>
+    
+    
+  
+       
     First name: <%= @user.first_name %> |
     Last name: <%= @user.last_name %> |
     Pseudo: <%= @user.pseudo %> |
