@@ -1,0 +1,134 @@
+.button-red{
+  background-color: $red-homeboard;
+  color: white;
+  border-color: $red-homeboard;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-red:hover {
+  color:white;
+  background-color: rgb(224, 75, 75);
+  border-color: solid red;
+  text-decoration: none;
+}
+
+.button-grey {
+  background-color: $grey-homeboard;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-grey:hover {
+  color:white;
+  background-color: rgb(224, 223, 223);
+  border-color: solid rgb(179, 177, 177);
+  text-decoration: none;
+}
+
+.button-green {
+  background-color: $green-homeboard;
+  color: white;
+  border-color: #015a51;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-green:hover {
+  color:white;
+  background-color: #03a090;
+  border-color: solid #015a51;
+  text-decoration: none;
+}
+
+.button-dark-grey {
+  background-color: $black-homeboard;
+  color: white;
+  border-color: #706f6f;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-dark-grey:hover {
+  color:white;
+  background-color: #4b4949;
+  border-color: solid #161616;
+  text-decoration: none;
+}
+
+.button-red-t {
+  background-color: transparent;
+  color: $red-homeboard;
+  border-color: $red-homeboard;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-red-t:hover {
+  color: white;
+  background-color: $red-homeboard;
+  border-color: $red-homeboard;
+}
+
+.button-grey-t {
+  background-color:  transparent;
+  color: $grey-homeboard;
+  border: 1px solid;
+  border-color:$grey-homeboard;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-grey-t:hover {
+  color: white;
+  background-color: $grey-homeboard;
+  border-color: $grey-homeboard;
+}
+
+.button-green-t {
+  background-color:  transparent;
+  color: $green-homeboard;
+  border: 1px solid;
+  border-color:$green-homeboard;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-green-t:hover {
+  color: white;
+  background-color: $green-homeboard;
+  border-color: $green-homeboard;
+}
+
+.button-dark-grey-t {
+  background-color:  transparent;
+  color: $black-homeboard;
+  border: 1px solid;
+  border-color:$black-homeboard;
+  border-radius: 20px;
+  padding: 5px 2rem 5px 2rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-dark-grey-t:hover {
+  color: white;
+  background-color: $black-homeboard;
+  border-color: $black-homeboard;
+}

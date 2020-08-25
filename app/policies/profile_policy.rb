@@ -1,12 +1,12 @@
-class CommentPolicy < ApplicationPolicy
+class ProfilePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def create?
-    true
+  def update?
+    user == record.user
   end
   
 end
