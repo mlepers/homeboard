@@ -1,0 +1,14 @@
+<div class="message-other">
+  <% if @other.photo.attachment.nil? %>
+    <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "message-avatar") %>
+  <% else %>
+    <%= cl_image_tag @other.photo.key, class: 'message-avatar' %>
+  <% end %>
+  <div class="message-container-other" id="message-<%= message.id %>" data-id = "<%= message.id %>">
+  <i class="author">
+    <span><%= message.user.pseudo %></span>
+    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </i>
+  <div><%= message.content %></div>
+</div>
+</div>
