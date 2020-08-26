@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'profiles/:id/edit', to: 'profiles#edit', as: :edit_profile
   patch '/profiles/:id', to: 'profiles#update'
   
-  resources :chatrooms, only: [ :show, :create, :new ] do
+  resources :chatrooms, only: [ :index, :show, :create, :new ] do
     resources :messages, only: [ :create ]
   end
 

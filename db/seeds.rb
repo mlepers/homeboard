@@ -36,6 +36,10 @@ service_eigth = Service.create!(title: "M'aider à monter un canap'", descriptio
 service_nine = Service.create!(title: "Offre de BBsitting", description: "Ma fille de 16 ans est dispo pour garder vos enfants !", user: mickael, category: "offer")
 service_ten = Service.create!(title: "Donne un lave-linge", description: "Nous changeons de lave-linge et donnons notre ancien, si cela intéresse quelqu'un!", start_at: Date.today, end_at: Date.today + 2, user: marie, category: "offer")
 
+puts "Creating a chatroom ..."
+
+chatroom = Chatroom.create!(guest: maxence, host: thomas)
+
 puts "Finished"
 
 
