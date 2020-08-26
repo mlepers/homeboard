@@ -1,7 +1,32 @@
-<div class="mobile-menu-container">
-  <div class="text-center"><i class="fas fa-home"></i><br>Home</div>
-  <div class="text-center"><i class="fas fa-comments"></i><br>Messages</div>
-  <div class="text-center"><i class="fas fa-plus-circle"></i><br>Add post</div>
-  <div class="text-center"><i class="fas fa-building"></i><br>Copro</div>
-  <div class="text-center"><i class="fas fa-users"></i><br>Neighbors</div>
+<div class="mobile-menu-container none-d">
+
+    <div class="text-center boxhead">
+      <%= link_to(root_path) do %>
+        <i class="fas fa-home"></i><br> Home
+      <% end %>
+    </div>
+
+    <div class="text-center boxhead">
+      <%= link_to(chatrooms_path) do %>
+        <i class="fas fa-comments"></i><br> Messages
+      <% end %>
+    </div>
+
+    <div class="text-center boxhead">
+      <%= link_to(new_service_path) do %>
+        <i class="fas fa-plus-circle"></i><br> Add post
+      <% end %>
+    </div>
+
+    <div class="text-center boxhead">
+      <%= link_to(residence_path(current_user.residence)) do %>
+        <i class="fas fa-building"></i><br> Copro
+      <% end %>
+    </div>
+
+    <div class="text-center boxhead">
+      <%= link_to(profiles_path) do %>
+        <i class="fas fa-users"></i><br> Neighbors
+      <% end %>
+    </div>
 </div>
