@@ -19,10 +19,12 @@
           </li>
         <% end %>
         <li class="nav-item d-flex align-items-center">
-          <%= link_to "Neighbors", profiles_path , class: "navlink"%>
+          <%= link_to "Neighbors", profiles_path, class: "navlink"%>
         </li>
         <li class="nav-item d-flex align-items-center">
-          <%= link_to "Add post ",new_service_path , class: "fas fa-plus-circle mr-2 addbutton-navbar" %>
+          <div data-turbolinks="false">
+            <%= link_to "Add post ", new_service_path, class: "fas fa-plus-circle mr-2 addbutton-navbar" %>
+          </div>
         </li>
       </ul>
       <div class="searchflex">
