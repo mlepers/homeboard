@@ -24,7 +24,7 @@
         <p class="text-center">
             <strong>Description : </strong>
             <% if @user.description.nil? %>
-                <i><%= @user.first_name %> hasn't written a description yet !</i>
+                <i><%= @user.first_name %> hasn't written description yet !</i>
             <%else  %>
                 <p class="font-italic text-center"><%= @user.description %></p>
             <%end  %>
@@ -75,10 +75,7 @@
                 </div>
             </div>
         <% end %>
-
-
-
-    <%end%>
+    <% end %>
 </div>
 
 

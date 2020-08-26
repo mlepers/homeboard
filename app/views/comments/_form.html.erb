@@ -1,10 +1,9 @@
 
 <div class="container">
-  <h6>Create a comment</h6>
   <%= simple_form_for(comment, remote: true) do |f| %>
   <div class="container">
     <%= f.input :content %>
-    <%= f.button :submit %>
+    <%= f.button :submit, "Send it !", class: "button-green mb-5" %>
   </div>
   <% end %>
 </div>
