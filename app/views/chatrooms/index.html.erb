@@ -16,14 +16,16 @@
           <div class="card-chatroom-title">
             <%= other.pseudo %>
           </div>
-          <div class="card-chatroom-body">
-            <div class="card-chatroom-last-message">
-              <%= chatroom.messages.last.content %>
+          <% unless chatroom.messages.empty? %>
+            <div class="card-chatroom-body">
+              <div class="card-chatroom-last-message">
+                <%= chatroom.messages.last.content %>
+              </div>
+              <div class="card-chatroom-date">
+                <%= chatroom.messages.last.created_at.strftime("%a %b %e") %>
+              </div>
             </div>
-            <div class="card-chatroom-date">
-              <%= chatroom.messages.last.created_at.strftime("%a %b %e") %>
-            </div>
-          </div>
+          <% end %>
         </div>
       </div>
     <% end %>
