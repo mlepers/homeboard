@@ -1,7 +1,31 @@
-<div class="message-container" id="message-<%= message.id %>">
-  <i class="author">
-    <span><%= message.user.pseudo %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <p><%= message.content %></p>
+<% if message.user == current_user %>
+  <div class="message-container-mine" id="message-<%= message.id %>">
+<% else %>
+  <div class="message-other">
+    <% if message != Message.last && Message.find(message.id + 1).user != message.user %>
+      <% if @other.photo.attachment.nil? %>
+        <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "message-avatar") %>
+      <% else %>
+        <%= cl_image_tag @other.photo.key, class: 'message-avatar' %>
+      <% end %>
+    <% elsif message == Message.last && Message.find(message.id - 1).user == message.user %>
+      <% if @other.photo.attachment.nil? %>
+        <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "message-avatar") %>
+      <% else %>
+        <%= cl_image_tag @other.photo.key, class: 'message-avatar' %>
+      <% end %>
+    <% else %>
+      <div class = "message-avatar">
+      </div>
+    <% end %>
+    <div class="message-container-other" id="message-<%= message.id %>" data-id = "<%= message.id %>" >
+<% end %>
+    <i class="author">
+      <span><%= message.user.pseudo %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    </i>
+    <div><%= message.content %></div>
+  </div>
+<% unless message.user == current_user %>
 </div>
+<% end %>
