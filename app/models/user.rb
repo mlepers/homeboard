@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :messages
   belongs_to :residence
   has_one_attached :photo
+
+  def name
+    first_name + " " + last_name
+  end
 end
