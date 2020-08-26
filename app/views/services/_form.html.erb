@@ -1,13 +1,20 @@
-<%= simple_form_for(service, remote: true) do |f| %>
-<div class="container">
-  <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["offer", "demand"]  %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <i class="fas fa-calendar-week"></i>
-  <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", min: Date.today} %>
-  <i class="fas fa-calendar-week"></i>
-  <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"}, min: Date.today  %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 offset-sm-3">
+    <div class="form-login mt-2">
+      <%= simple_form_for(service, remote: true) do |f| %>
+      <div class="container">
+        <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["offer", "demand"]  %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <i class="fas fa-calendar-week"></i>
+        <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", min: Date.today} %>
+        <i class="fas fa-calendar-week"></i>
+        <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"}, min: Date.today  %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.button :submit, class: "button-green" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<% end %>
+

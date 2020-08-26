@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
 
 <%= link_to  services_path, class: 'link-without-style' do  %>
   <h1 class="text-center">Services</h1>
@@ -17,25 +17,27 @@
 <div class="grid-services">
   <% @services.each do |service| %>
     <div class="grid-col-services">
-      <div class="card-service">
-      <% if service.category == "offer" %>
-        <div class="card-service-offer">
-        </div>
-      <% else %>
-        <div class="card-service-demand">
+      <%= link_to service_path(service), class: 'without-decoration' do %>
+        <div class="card-service">
+        <% if service.category == "offer" %>
+          <div class="card-service-offer">
+          </div>
+        <% else %>
+          <div class="card-service-demand">
+          </div>
+        <% end %>
+          <div class="card-service-avatar">
+          </div>
+          <div class="card-service-text">
+            <div class="card-service-title">
+              <%= service.title %>
+            </div>
+            <div class="card-service-body">
+              by <%= service.user.pseudo %> - <%= service.created_at.strftime("%F") %>
+            </div>
+          </div>
         </div>
       <% end %>
-        <div class="card-service-avatar">
-        </div>
-        <div class="card-service-text">
-          <div class="card-service-title">
-            <%= link_to service.title, service_path(service), class: 'without-decoration' %>
-          </div>
-          <div class="card-service-body">
-            by <%= service.user.pseudo %> - <%= service.created_at.strftime("%F") %>
-          </div>
-        </div>
-      </div>
     </div>
   <% end %>
 </div>

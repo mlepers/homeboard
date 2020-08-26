@@ -8,20 +8,8 @@
   position: relative;
 }
 
-.card-comment {
-  background-color: $white-homeboard;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px $grey-homeboard;
-  align-items: center;
-  position: relative;
-  padding: 15px;
-}
-
-.card-comment-avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: grey;
+.card-service:hover {
+  opacity: 0.8;
 }
 
 .card-service-image {

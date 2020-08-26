@@ -38,16 +38,20 @@
       <% end %>
       </div>
       <div class="nav-item dropdown ml-3">
-          <img class="avatar-large dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/dow6rowa0/image/upload/lw8rrmu3fa05z7qifcxmsqi681p8">
+        <% if (current_user.nil? || current_user.photo.attachment.nil?) %> 
+          <%= image_tag('Avatar_default.jpeg', class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } ) %>
+        <% else %> 
+          <%= cl_image_tag current_user.photo.key, class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <% unless current_user.nil? %>
-              <%= link_to "My profile",  profile_path(current_user), class: "dropdown-item"%>
-              <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-            <% end %>
-            <% if current_user.nil? %>
-              <%= link_to "Log in", new_user_session_path, class: "dropdown-item"%>
-              <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item"%>
-            <% end %>
+          <% unless current_user.nil? %>
+            <%= link_to "My profile",  profile_path(current_user), class: "dropdown-item"%>
+            <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+          <% end %>
+          <% if current_user.nil? %>
+            <%= link_to "Log in", new_user_session_path, class: "dropdown-item"%>
+            <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item"%>
+          <% end %>
         </div>
       </div>
     </div>
