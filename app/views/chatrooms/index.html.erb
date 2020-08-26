@@ -1,5 +1,31 @@
-<div class="container"><h1 class="text-center">My chats</h1>
+<div class="container"><h1 class="text-center my-4">My chats</h1>
   <% @chatrooms.each do |chatroom| %>
-    <div>This is the chatroom <%= link_to chatroom.id, chatroom_path(chatroom) %></div>
+  <% if chatroom.guest == current_user %>
+    <% other = chatroom.host %>
+  <% else %>
+    <% other = chatroom.guest %>
+  <% end %>
+    <%= link_to chatroom_path(chatroom), class:'without-decoration' do %>
+      <div class="card-chatroom">
+        <% if other.photo.attachment.nil? %>
+            <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-chatroom-avatar") %>
+        <% else %>
+            <%= cl_image_tag other.photo.key, height: 150, width: 200, crop: :fill, class: "card-chatroom-avatar"%>
+        <% end %>
+        <div class="card-chatroom-text">
+          <div class="card-chatroom-title">
+            <%= other.pseudo %>
+          </div>
+          <div class="card-chatroom-body">
+            <div class="card-chatroom-last-message">
+              <%= chatroom.messages.last.content %>
+            </div>
+            <div class="card-chatroom-date">
+              <%= chatroom.messages.last.created_at.strftime("%a %b %e") %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

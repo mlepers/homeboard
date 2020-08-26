@@ -1,25 +1,11 @@
+// All services card stuff
+
 .card-service {
   display: flex;
   background-color: $white-homeboard;
   box-shadow: 1px 1px 1px #eeeeee;
   align-items: center;
   position: relative;
-}
-
-.card-comment {
-  background-color: $white-homeboard;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px $grey-homeboard;
-  align-items: center;
-  position: relative;
-  padding: 10px;
-}
-
-.card-comment-avatar {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: grey;
 }
 
 .card-service-image {
@@ -55,11 +41,6 @@
   margin: 0.5em 0;
 }
 
-.card-comment-text {
-  display: flex;
-  flex-direction: column;
-}
-
 .card-service-title {
   color: $black-homeboard;
   font-size: 1rem;
@@ -69,4 +50,86 @@
 .card-service-body {
   color: $grey-homeboard;
   font-size: 0.8rem;
+}
+
+// All comments card stuff
+
+.card-comment {
+  background-color: $white-homeboard;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px $grey-homeboard;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+}
+
+.card-comment-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: grey;
+}
+
+.card-comment-text {
+  display: flex;
+  flex-direction: column;
+}
+
+// All chatrooms card stuff
+
+.card-chatroom {
+  display: flex;
+  background-color: $white-homeboard;
+  align-items: center;
+  position: relative;
+  padding: 0 0.5rem 0 0;
+}
+
+.card-chatroom-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: rgb(17, 17, 17);
+  margin: 0 1rem;
+}
+
+.card-chatroom-text {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5em 0;
+  box-sizing: border-box;
+  width: calc(100% - 5rem);
+}
+
+.card-chatroom-title {
+  color: $black-homeboard;
+  font-size: 1rem;
+  font-weight: bold;
+  box-sizing: content-box;
+}
+
+.card-chatroom-body {
+  color: $grey-homeboard;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-chatroom-last-message {
+  white-space: nowrap; 
+  box-sizing: border-box; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-chatroom-date {
+  font-style: italic;
+  white-space:nowrap;
+  width: 4rem;
+  text-align: center;
+}
+
+.card-chatroom:hover {
+  display: flex;
+  opacity: 0.8;
 }
