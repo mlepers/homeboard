@@ -1,21 +1,81 @@
-<h1> <%= @service.title %></h1>
+<div class="container">
+  <p>
+    <%= link_to profile_path(@service.user), class: "link-without-style" do %>
+      <% if @service.user.photo.attachment.nil? %>
+        <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "avatar") %>
+      <% else %>
+        <%= cl_image_tag @service.user.photo.key, crop: :fill, class: "avatar"%>
+      <% end %>
+    <% end %>
+    
+    by <%= link_to @service.user.pseudo, profile_path(@service.user), class: "link-without-style" %>
+  </p>
 
-<p><%= @service.description %></p>
-<p>by <%= @service.user.pseudo %></p>
+  <h1> <%= @service.title %></h1>
 
-<%if current_user == @service.user %>
-  <%= link_to "Update", service_path(@service), class: "button-grey-t", method: :patch %>
-  <%= link_to "Delete", service_path(@service), class: "button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
-<% end %>
-
-
-<% unless @comments.nil? %>
-  <% @comments.each do |comment| %>
-    <%= comment.content %>
-    by <%= comment.user.pseudo %>
+     
+  
+  <p class="mt-5"><%= @service.description %></p>
+  <p class="font-italic">When?<p>
+  
+  <% if @service.start_at == @service.end_at %>
+    <p><strong><%= @service.start_at %></strong> </p>
+  <% else %>
+    <p>From : <strong><%= @service.start_at %></strong> To : <strong><%= @service.end_at %></strong></p>
   <% end %>
-<% end %>
+  
+  <%if current_user == @service.user %>
+    <%= link_to "Update", service_path(@service), class: "button-grey-t", method: :patch %>
+    <%= link_to "Delete", service_path(@service), class: "button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
+  <% end %>
+
+
+  
+
+  <% if @comments.count > 0 %>
+
+
+    <% @comments.each do |comment| %>
+    <div class="card-comment mb-3">
+      <div class="d-flex">
+        <%= link_to  profile_path(comment.user), class: "link-without-style" do %>
+          <% if comment.user.photo.attachment.nil? %>
+            <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-comment-avatar") %>
+          <% else %>
+            <%= cl_image_tag comment.user.photo.key, crop: :fill, class: "card-comment-avatar"%>
+          <% end %>
+        <% end %>
+        <div class="card-service-title">
+          <%= link_to  profile_path(comment.user), class: "link-without-style" do %>
+            <p class="ml-2"> <%=comment.user.first_name%> <%=comment.user.last_name[0]%>.</p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card-comment-text">
+        <div class="card-service-body">
+            <%=comment.created_at  %>
+        </div>
+        <p class="mb-0">
+          <%= comment.content %>
+        </p>
+      </div>    
+    </div>
+
+      
+    <% end %>
+
+
+  <% else %>
+    <p>No comment yet....</p>
+  <%end  %>
 
 
 
-<%= render "comments/form", comment: [ @service, @comment ] %>
+  <div class="mt-5">
+    <% unless @service.user == current_user %>
+      <%= render "comments/form", comment: [ @service, @comment ] %>
+    <% end %>
+  </div>
+
+</div>
