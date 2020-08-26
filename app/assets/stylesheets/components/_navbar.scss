@@ -7,6 +7,7 @@
 }
 
 .navlink {
+  vertical-align: auto;
   color: $black-homeboard;
   margin-right: 25px;
   text-decoration: none !important;
@@ -20,7 +21,7 @@
 
 .addbutton-navbar {
   background-color: $grey-homeboard;
-  padding: 5px 20px;
+  padding: 10px 20px;
   border-radius: 20px;
   color: $black-homeboard;
   margin-right: 20px;
