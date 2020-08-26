@@ -13,6 +13,39 @@
 
   <h1> <%= @service.title %></h1>
 
+<% unless @service.photos.count == 0 %>  
+<div class="image-carrousel">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% if @service.photos.count == 1  %>
+            <%= cl_image_tag @service.photos.first.key, height: 250, width: 300, crop: :fill, class: 'd-block rounded'%>
+        <% else %>
+          <div class="carousel-item active">
+            <%= cl_image_tag @service.photos.first.key, height: 250, width: 300, crop: :fill, class: 'd-block rounded'%>
+          </div>
+          <% @service.photos[1..].each do |photo| %>
+            <div class="carousel-item">
+              <%= cl_image_tag photo.key, height: 250, width: 300, crop: :fill, class: 'd-block rounded'%>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+</div>
+  
+
+<% end %>
+
+
      
   
   <p class="mt-5"><%= @service.description %></p>
@@ -25,7 +58,7 @@
   <% end %>
   
   <%if current_user == @service.user %>
-    <%= link_to "Update", service_path(@service), class: "button-grey-t", method: :patch %>
+    <%= link_to "Update", edit_service_path(@service), class: "button-grey-t" %>
     <%= link_to "Delete", service_path(@service), class: "button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
   <% end %>
 
@@ -67,7 +100,7 @@
 
 
   <% else %>
-    <p>No comment yet....</p>
+    <p class = "mt-5">No comment yet....</p>
   <%end  %>
 
 
@@ -79,3 +112,4 @@
   </div>
 
 </div>
+
