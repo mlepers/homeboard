@@ -7,21 +7,21 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">   
+        <li class="nav-item d-flex align-items-center">   
           <%= link_to "Home", root_path, class: "navlink" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-flex align-items-center">
           <%= link_to "Messages",  chatrooms_path, class: "navlink"%>
         </li>
         <% if current_user %>
-          <li class="nav-item">
+          <li class="nav-item d-flex align-items-center">
             <%= link_to "Copro", residence_path(current_user.residence) , class: "navlink"%>
           </li>
         <% end %>
-        <li class="nav-item">
+        <li class="nav-item d-flex align-items-center">
           <%= link_to "Neighbors", profiles_path , class: "navlink"%>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-flex align-items-center">
           <%= link_to "Add post ",new_service_path , class: "fas fa-plus-circle mr-2 addbutton-navbar" %>
         </li>
       </ul>
