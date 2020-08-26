@@ -13,6 +13,14 @@ class CommentsController < ApplicationController
     authorize @comment
   end
 
+  def destroy
+    @comment = Comment.find(params[:service_id])
+    @comment.destroy
+    service = Service.find(params[:id])
+    redirect_to service_path(service)
+    authorize @comment
+  end
+
   private
 
   def comment_params

@@ -63,8 +63,8 @@
 
 <div class="mb-5 text-center">
   <%if current_user == @service.user %>
-    <%= link_to "Update", edit_service_path(@service), class: "button-green-t" %>
-    <%= link_to "Delete", service_path(@service), class: "button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
+    <%= link_to "Update", edit_service_path(@service), class: "button-green-t mr-2" %>
+    <%= link_to "Delete", service_path(@service), class: "ml-2 button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
   <% end %>
 </div>
 
@@ -95,9 +95,12 @@
         <div class="card-service-body">
             <%=comment.created_at  %>
         </div>
-        <p class="mb-0">
+        <span class="mb-0">
           <%= comment.content %>
-        </p>
+        </span>
+        <%if current_user == comment.user %>
+         <span style="color: #6E757C; text-align:right;"><%= link_to "delete", service_comment_path(comment), class: "link-without-style", method: :delete, data: {confirm: "Delete this comment ?"} %></span>
+        <% end %>
       </div>
     </div>
 
