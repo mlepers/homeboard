@@ -1,6 +1,8 @@
-<%= simple_form_for(@user, url: profile_path(@user)) do |f| %>
-  <%= f.input :email %>
-  <%= f.input :description %>
-  <%= f.input :photo, as: :file  %>
-  <%= f.submit %>
-<% end %>
+<div class="container mt-4 mb-5">
+  <%= simple_form_for(@user, url: profile_path(@user)) do |f| %>
+    <%= f.input :email %>
+    <%= f.input :description %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "Update", class: "button-green mt-4 mb-4" %>
+  <% end %>
+</div>
