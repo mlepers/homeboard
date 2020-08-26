@@ -1,59 +1,60 @@
 
 <div class="container">
     <% if current_user == @user %>
-        <h1 class="text-center">Mon profil</h1>
+        <p class="text-center mt-4"><strong>My profile</strong></p>
     <%else  %>
-        <h1 class="text-center">Mon voisin</h1>
+        <p class="text-center mt-4"><strong>My neighbor</strong></p>
     <% end %>
 
 
 
     <p>
-        <div class="text-center">
+        <div class="text-center mt-2 mb-4">
             <% if @user.photo.attachment.nil? %>
                 <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "avatar-profile-show") %>
             <% else %>
                 <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill, class: "avatar-profile-show"%>
             <% end %>
         </div>
-        
-        <h2 class="text-center mt-2"><%= @user.first_name %> <%= @user.last_name %> </h2>
+
+        <h2 class="text-center"><%= @user.first_name %> <%= @user.last_name %> </h2>
         <p class="text-center"><%= @user.pseudo %></p>
-        <p class="text-center"><strong>email: </strong><%= @user.email %> </p>
-        <p class="text-center">___</p>
+        <p class="text-center"><strong>email : </strong><%= @user.email %> </p>
+        <hr class="pt-2 pb-1" style="width:30%;text-align:center;">
         <p class="text-center">
-            <strong>Description: </strong> 
+            <strong>Description : </strong>
             <% if @user.description.nil? %>
-                to be completed...
+                <i><%= @user.first_name %> hasn't written a description yet !</i>
             <%else  %>
                 <p class="font-italic text-center"><%= @user.description %></p>
             <%end  %>
         </p>
-       
+        <hr class="pt-2 pb-1" style="width:30%;text-align:center;">
+
     </p>
     <p>
-        <% if current_user == @user %>  
-            <p class="text-center"><%= link_to 'Edit profile', edit_profile_path, class: "button-grey-t"%></p>    
+        <% if current_user == @user %>
+            <p class="text-center mb-5"><%= link_to 'Edit profile', edit_profile_path, class: "button-grey"%></p>
         <%end%>
     </p>
 
-     <p> <strong>Residence : </strong> <%=@user.residence.name%> <%=@user.residence.address%> </p>
+     <p class="text-center"><strong>Residence : </strong> <%=@user.residence.name%> <%=@user.residence.address%> </p>
 
     <% if current_user == @user %>
-        <p><%= link_to "Residence infos", residence_path(@user.residence.id), class: "button-green-t" %></p>
+        <p class="text-center"><%= link_to "What's new in my residence?", residence_path(@user.residence.id), class: "button-green" %></p>
     <% end %>
-    
+
 
     <% if @user.services.count == 0 %>
-        <h5 class="mt-4 mb-3">Pas d'annonces...</h5>
+        <h5 class="mt-5 mb-3 text-center">No publication yet</h5>
     <%elsif @user.services.count == 1%>
-        <h5 class="mt-4 mb-3">1 annonce publiée</h5>
+        <h5 class="mt-5 mb-3 text-center">1 publication</h5>
     <% else %>
-        <h5 class="mt-4 mb-3"> <%= @user.services.count %> annonces publiées </h5>  
+        <h5 class="mt-5 mb-3 text-center"> <%= @user.services.count %> publications </h5>
     <% end %>
 
     <%@user.services.each do |service|%>
-        <%= link_to service_path(service), class: "without-decoration" do%>  
+        <%= link_to service_path(service), class: "without-decoration" do%>
             <div class="card-service mb-3">
                 <% if service.category == "offer" %>
                     <div class="card-service-offer">
@@ -69,14 +70,14 @@
                         <%= service.title %>
                     </div>
                     <div class="card-service-body">
-                    | from: <%= service.start_at %> to <%= service.end_at %> | category : <%= service.category %> 
-                    </div> 
-                </div>    
+                    | from <%= service.start_at %> to <%= service.end_at %> | category : <%= service.category %>
+                    </div>
+                </div>
             </div>
         <% end %>
-        
 
-        
+
+
     <%end%>
 </div>
 
