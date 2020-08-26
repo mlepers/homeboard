@@ -8,6 +8,9 @@ class ServicesController < ApplicationController
     else
       @services = policy_scope(Service).order(created_at: :desc)
     end
+    if params[:category].present?
+      @services = @services.where(category: params[:category])
+    end
   end
 
   def show

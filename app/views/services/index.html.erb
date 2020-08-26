@@ -1,4 +1,18 @@
-<div class="container"><h1 class="text-center">Services</h1>
+<div class="container">
+
+<%= link_to  services_path, class: 'link-without-style' do  %>
+  <h1 class="text-center">Services</h1>
+<% end %>
+
+
+<div class="d-flex justify-content-center">
+  <%= link_to "offer", services_path(category: params[:category] == "offer" ? "" : "offer"), 
+                       class: "m-5 #{params[:category] == 'offer' ? 'button-red-offer ' : 'button-red-t'}" %>
+
+  <%= link_to "demand", services_path(category: params[:category] == "demand" ? "" : "demand"), 
+                       class: "m-5 #{params[:category] == 'demand' ? 'button-grey-demand' : 'button-grey-t'}" %>
+</div>
+
 
 <div class="grid-services">
   <% @services.each do |service| %>
@@ -26,5 +40,4 @@
   <% end %>
 </div>
 
-<%= link_to "Create new service", new_service_path %>
 </div>
