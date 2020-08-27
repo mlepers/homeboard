@@ -21,7 +21,6 @@
   color: #6E757C;
   line-height: 1;
   font-style: italic;
-  margin-top: 10px;
   font-size: 0.9em;
 }
 
@@ -43,4 +42,14 @@
   .wrapper-neighbors {
     grid-template-columns: 1fr;
   }
+}
+
+.neighbors-link {
+  color: $black-homeboard;
+  text-decoration: none !important;
+}
+
+.neighbors-link:hover {
+  color: $black-homeboard;
+  text-decoration: none !important;
 }
