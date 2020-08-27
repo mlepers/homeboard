@@ -12,13 +12,19 @@ const controlLastMessageAvatar = () => {
   const messages = document.getElementById('messages');
   const lastMessage = messages.lastElementChild.lastElementChild;
   const otherMessages = document.querySelectorAll('.message-other');
-  const myBeforeLast = otherMessages[otherMessages.length - 2];
-  const beforeLastMessage = myBeforeLast.lastElementChild;
-  const avatars = document.querySelectorAll('.message-avatar');
-  const avatar = avatars[avatars.length - 2];
-  if (parseInt(lastMessage.dataset.id - 1) == parseInt(beforeLastMessage.dataset.id)) {
-    avatar.remove();
-    myBeforeLast.insertAdjacentHTML('afterbegin', "<div class = 'message-avatar'> </div>");
+  if (otherMessages !== undefined) {
+    const myBeforeLast = otherMessages[otherMessages.length - 2];
+    if (myBeforeLast !== undefined){
+      const beforeLastMessage = myBeforeLast.lastElementChild;
+      const avatars = document.querySelectorAll('.message-avatar');
+      if (avatars !== undefined){
+        const avatar = avatars[avatars.length - 2];
+        if (parseInt(lastMessage.dataset.id - 1) == parseInt(beforeLastMessage.dataset.id)) {
+          avatar.remove();
+          myBeforeLast.insertAdjacentHTML('afterbegin', "<div class = 'message-avatar'> </div>");
+        };
+      };
+    };
   };
 }
 
