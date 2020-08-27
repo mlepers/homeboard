@@ -1,8 +1,12 @@
 <div class="container">
   <h1 class="text-center" id="chat-title"><%= @other.pseudo %></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-    <% @chatroom.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
+    <% if @messages.empty?  %>
+      <p class="font-italic" id="no-message">There is no messages for the moment .... Go ahead and talk !</p>
+    <% else %>
+      <% @messages.each do |message| %>
+        <%= render 'messages/message', message: message %>
+      <% end %>
     <% end %>
   </div>
 

@@ -7,9 +7,9 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     if current_user == @chatroom.guest 
-      @other = @chatroom.host
-    else
       @other = @chatroom.guest
+    else
+      @other = @chatroom.host
     end
     if @message.save!
       ChatroomChannel.broadcast_to(
