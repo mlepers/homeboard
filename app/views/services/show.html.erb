@@ -99,7 +99,9 @@
           <%= comment.content %>
         </span>
         <%if current_user == comment.user %>
-         <span style="color: #6E757C; text-align:right;"><%= link_to "delete", service_comment_path(comment), class: "link-without-style", method: :delete, data: {confirm: "Delete this comment ?"} %></span>
+          <%= link_to service_comment_path(@service, comment), class: "link-without-style", method: :delete, data: {confirm: "Delete this comment ?"} do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% end %>
       </div>
     </div>

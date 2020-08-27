@@ -57,9 +57,10 @@
   text-overflow: ellipsis;
 }
 
-.card-service-body {
+.card-service-text {
   color: $grey-homeboard;
   font-size: 0.8rem;
+  position: relative;
 }
 
 // All comments card stuff
@@ -83,6 +84,15 @@
 .card-comment-text {
   display: flex;
   flex-direction: column;
+  .far {
+    color: $grey-homeboard;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    &:hover {
+      opacity:0.6;
+    }
+  }
 }
 
 // All chatrooms card stuff

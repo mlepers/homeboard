@@ -14,9 +14,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:service_id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
-    service = Service.find(params[:id])
+    service = Service.find(params[:service_id])
     redirect_to service_path(service)
     authorize @comment
   end
