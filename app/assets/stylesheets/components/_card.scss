@@ -32,10 +32,10 @@
 }
 
 .card-service-avatar {
+  object-fit: cover;
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: grey;
   margin: 0 1rem;
 }
 
