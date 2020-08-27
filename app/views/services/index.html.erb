@@ -1,15 +1,13 @@
 <div class="container mt-4">
-
-  <%= link_to  services_path, class: 'link-without-style' do  %>
-    <h1 class="text-center">Services</h1>
-  <% end %>
-
+<h1 class="text-center ">Services</h1>
 <div class="d-flex justify-content-center">
-  <%= link_to "offer", services_path(category: params[:category] == "offer" ? "" : "offer"),
-                       class: "m-5 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
 
-  <%= link_to "demand", services_path(category: params[:category] == "demand" ? "" : "demand"),
-                       class: "m-5 without-decoration #{params[:category] == 'demand' ? 'button-grey' : 'button-grey-t'}" %>
+  <%= link_to "offer", services_path(category: params[:category] == "offer" ? "" : "offer"), 
+                       class: "mt-2 mb-4 ml-5 mr-5 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
+
+  <%= link_to "demand", services_path(category: params[:category] == "demand" ? "" : "demand"), 
+                       class: "mt-2 mb-4 ml-5 mr-5 without-decoration #{params[:category] == 'demand' ? 'button-grey' : 'button-grey-t'}" %>
+
 </div>
 
 
