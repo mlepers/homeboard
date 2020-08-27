@@ -141,7 +141,7 @@
     border-radius: 20px;
     padding: 5px 2rem 5px 2rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  
+
   }
 }
 
@@ -178,5 +178,16 @@
   border-color: $black-homeboard;
 }
 
+.button-green-lite {
+  text-decoration: none !important;
+  color: $green-homeboard;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.button-green-lite:hover {
+  text-decoration: none !important;
+  color: #03a090;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
 

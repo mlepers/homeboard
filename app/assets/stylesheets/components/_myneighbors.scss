@@ -1,0 +1,46 @@
+.wrapper-neighbors {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.card-neighbors {
+  background-color: $white-homeboard;
+  box-shadow: 1px 1px 1px #eeeeee;
+  align-items: center;
+  position: relative;
+  padding:15px;
+  line-height:0.9;
+}
+
+.card-neighbors:hover {
+  opacity: 0.8;
+}
+
+.secondary-information {
+  color: #6E757C;
+  line-height: 1;
+  font-style: italic;
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.neighbors-avatar {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: rgb(17, 17, 17);
+  margin-bottom: 20px;
+}
+
+@media(max-width: 1080px) {
+  .wrapper-neighbors {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 780px) {
+  .wrapper-neighbors {
+    grid-template-columns: 1fr;
+  }
+}
