@@ -4,3 +4,36 @@
   right: 16px;
   z-index: 1000;
 }
+
+.alert-green {
+  background-color: #D9EAE7;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: $green-homeboard;
+}
+
+.alert-red {
+  background-color: #F3DBDB;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  color: $red-homeboard;
+}
+
+.alert-link {
+  text-decoration: none !important;
+  color: $red-homeboard;
+  font-weight: bold;
+}
+
+.alert-link:hover {
+  color: rgb(224, 75, 75);
+}
+
+.img-copro {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: 15px 0px;
+}

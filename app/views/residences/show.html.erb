@@ -1,10 +1,55 @@
 <div class="container mt-4">
-  <h1 class="text-center">Ma résidence</h1>
+  <h1 class="text-center">My copro</h1>
 
-  <p> <%= @residence.name  %></p>
-  <p> <%= @residence.address  %> </p>
+  <p class="text-center mt-4 mb-4 secondary-information">
+    <%= @residence.name %> - <%= @residence.address  %>
+  </p>
 
-  <h6>Infos du syndic</h6>
+  <div class="alert-red">
+    <div>
+      <strong>[MONDAY 31 SEPTEMBER : CAR PARK CLEANNING]</strong>
+      <br>Next 31th september between 10 and 12 am, you need to park your car out of the residence car park.
+    </div>
+    <div>
+      <div class="button-red mt-2 mb-2" style="display:inline-block;">See details (PDF)</div>
+    </div>
+  </div>
 
-  <p>A venir...</p>
+  <div class="alert-green">
+    <div>
+      <strong>[TUESDAY 15 OCTOBER : CHARGES CONDOMIUM]</strong>
+      <br>You have to pay your charges for this last trimester before the next 15th october
+    </div>
+    <div>
+      <div class="button-green mt-2 mb-2" style="display:inline-block;">Pay</div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <h6 class="mt-5">My syndic contact</h6>
+    <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598537789/stephane-plaza-dyspraxie-isopix_kikbtf.jpg', crop:"fill", class: "img-copro") %>
+    <p>
+      <strong>Stéphane Plazza</strong><br>
+      <div class="button-green" style="display: inline-block;">Send an email</u></div><br>
+    </p>
+    <p>
+      Stéphane Plaza immobilier Lille<br>
+      55 Boulevard de la Liberté, 59000 London<br>
+      +33 (0)3 20 56 33 34
+    </p>
+      <hr class="pt-2 pb-1" style="width:60%;text-align:center;">
+  </div>
+   <div class="text-center mb-5">
+    <h6 class="mt-5">My owner council contact</h6>
+    <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598538790/download_emaje2.jpg', crop:"fill", class: "img-copro") %>
+    <p>
+      <strong>Jenny Labrosse</strong><br>
+      <div class="button-green" style="display: inline-block;">Send an email</u></div><br>
+    </p>
+    <p>
+      President of owner council - <%= @residence.name %><br>
+      <%= @residence.address  %>
+      +33 (0)3 20 51 22 43
+    </p>
+  </div>
 </div>
