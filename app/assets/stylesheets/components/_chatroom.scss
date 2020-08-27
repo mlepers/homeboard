@@ -14,9 +14,11 @@
   margin:1px 0;
   padding: 3px;
   border-radius: 10px;
-  max-width: 400px;
+  width: 400px;
   background-color: $green-homeboard;
   align-self: flex-end;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .message-other {
@@ -32,10 +34,23 @@
   margin: 0 1rem;
 }
 
-
 .message-container-other {
   padding: 3px;
   border-radius: 10px;
-  max-width: 400px;
+  width: 400px;
   background-color: $grey-homeboard;
+}
+
+.message-content {
+  width: 100%;
+  word-break: break-word;
+}
+
+@media(max-width: 920px) {
+  .message-container-other {
+    width: 200px;
+  }
+  .message-container-mine {
+    width: 200px;
+  }
 }
