@@ -11,13 +11,17 @@ const scrollLastMessage = () => {
 const controlLastMessageAvatar = () => {
   const messages = document.getElementById('messages');
   const lastMessage = messages.lastElementChild.lastElementChild;
+  const noMessage = document.getElementById('no-message');
+  if (noMessage){
+    noMessage.remove();
+  }
   const otherMessages = document.querySelectorAll('.message-other');
-  if (otherMessages !== undefined) {
+  if (otherMessages) {
     const myBeforeLast = otherMessages[otherMessages.length - 2];
-    if (myBeforeLast !== undefined){
+    if (myBeforeLast){
       const beforeLastMessage = myBeforeLast.lastElementChild;
       const avatars = document.querySelectorAll('.message-avatar');
-      if (avatars !== undefined){
+      if (avatars){
         const avatar = avatars[avatars.length - 2];
         if (parseInt(lastMessage.dataset.id - 1) == parseInt(beforeLastMessage.dataset.id)) {
           avatar.remove();

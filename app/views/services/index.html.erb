@@ -1,11 +1,13 @@
 <div class="container mt-4">
 <h1 class="text-center ">Services</h1>
 <div class="d-flex justify-content-center">
+
   <%= link_to "offer", services_path(category: params[:category] == "offer" ? "" : "offer"), 
                        class: "mt-2 mb-4 ml-5 mr-5 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
 
   <%= link_to "demand", services_path(category: params[:category] == "demand" ? "" : "demand"), 
                        class: "mt-2 mb-4 ml-5 mr-5 without-decoration #{params[:category] == 'demand' ? 'button-grey' : 'button-grey-t'}" %>
+
 </div>
 
 
@@ -22,7 +24,7 @@
               </div>
             <% end %>
             <% if service.user.photo.attachment.nil? %>
-              <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-service-avatar") %>            
+              <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-service-avatar") %>
             <% else %>
               <%= cl_image_tag service.user.photo.key, crop: :fill, class: "card-service-avatar"%>
             <% end %>
