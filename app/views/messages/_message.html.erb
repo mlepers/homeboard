@@ -2,15 +2,14 @@
   <div class="message-container-mine" id="message-<%= message.id %>">
 <% else %>
   <div class="message-other">
-  
     <% unless @messages.nil?  %>
-      <% if message != @messages.last && @messages[rindex[message]+1].user != message.user %>
+      <% if message != @messages.last && @messages[@messages.rindex(message)+1].user != message.user %>
         <% if @other.photo.attachment.nil? %>
           <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "message-avatar") %>
         <% else %>
           <%= cl_image_tag @other.photo.key, class: 'message-avatar' %>
         <% end %>
-      <% elsif message == @messages.last && @messages[rindex[message]-1].user == message.user %>
+      <% elsif message == @messages.last && @messages[@messages.rindex(message)-1].user == message.user %>
         <% if @other.photo.attachment.nil? %>
           <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "message-avatar") %>
         <% else %>
@@ -19,9 +18,9 @@
       <% else %>
         <div class = "message-avatar">
         </div>
-      <% end %>  
+      <% end %> 
     <% end %>
-  <div class="message-container-other" id="message-<%= message.id %>" data-id = "<%= message.id %>" >
+  <div class="message-container-other" id="message-<%= message.id %>" data-id = "<%= message.id %>">
 <% end %>
     <i class="author">
       <span><%= message.user.pseudo %></span>
