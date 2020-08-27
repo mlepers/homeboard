@@ -14,7 +14,7 @@
   margin:1px 0;
   padding: 3px;
   border-radius: 10px;
-  width: 400px;
+  max-width: 400px;
   background-color: $green-homeboard;
   align-self: flex-end;
   display: flex;
@@ -37,7 +37,7 @@
 .message-container-other {
   padding: 3px;
   border-radius: 10px;
-  width: 400px;
+  max-width: 400px;
   background-color: $grey-homeboard;
 }
 
@@ -48,9 +48,9 @@
 
 @media(max-width: 920px) {
   .message-container-other {
-    width: 200px;
+    max-width: 200px;
   }
   .message-container-mine {
-    width: 200px;
+    max-width: 200px;
   }
 }
