@@ -1,36 +1,34 @@
 .button-red{
-  background-color: $red-homeboard;
   color: white;
+  background-color: $red-homeboard;
   border-color: $red-homeboard;
   border: 1px solid transparent;
   border-radius: 20px;
   text-align: center;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.button-red:hover {
-  color:white;
-  background-color: rgb(224, 75, 75);
-  border-color: solid red;
-  text-decoration: none;
+  &:hover {
+    color:white;
+    background-color: rgb(224, 75, 75);
+    border-color: solid red;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
 
 .button-grey {
+  color: white;
   background-color: $grey-homeboard;
-  color: $black-homeboard;
   border: 1px solid transparent;
   border-radius: 20px;
   text-align: center;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.button-grey:hover {
-  color: $black-homeboard;
-  background-color: rgb(224, 223, 223);
-  border-color: solid rgb(179, 177, 177);
-  text-decoration: none;
+  &:hover {
+    color: white;
+    background-color: rgb(224, 223, 223);
+    border-color: solid rgb(179, 177, 177);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
 
 .button-green {
@@ -42,13 +40,12 @@
   text-align: center;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.button-green:hover {
-  color:white;
-  background-color: #03a090;
-  border-color: solid #015a51;
-  text-decoration: none;
+  &:hover {
+    color:white;
+    background-color: #03a090;
+    border-color: solid #015a51;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
 
 .button-dark-grey {
@@ -60,13 +57,12 @@
   text-align: center;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.button-dark-grey:hover {
-  color:white;
-  background-color: #4b4949;
-  border-color: solid #161616;
-  text-decoration: none;
+  &::hover {
+    color:white;
+    background-color: #4b4949;
+    border-color: solid #161616;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
 
 .button-red-t {
@@ -77,32 +73,12 @@
   border-radius: 20px;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  text-decoration: none !important;
-}
-
-.button-red-t:hover {
-  color: white;
-  background-color: $red-homeboard;
-  border-color: $red-homeboard;
-}
-
-
-.button-red-offer {
-  color: white;
-  background-color: $red-homeboard;
-  border-color: $red-homeboard;
-  border-radius: 20px;
-  padding: 5px 2rem 5px 2rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   &:hover {
     color: white;
     background-color: $red-homeboard;
-    opacity: 0.7;
     border-color: $red-homeboard;
-    border-radius: 20px;
-    padding: 5px 2rem 5px 2rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    }
+  }
 }
 
 .button-grey-t {
@@ -113,37 +89,14 @@
   border-radius: 20px;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  text-decoration: none !important;
-}
-
-.button-grey-t:hover {
-  color: white;
-  background-color: $grey-homeboard;
-  border-color: $grey-homeboard;
-}
-
-
-.button-grey-demand {
-  background-color: $grey-homeboard;
-  color: white;
-  border: 1px solid;
-  border-color: $grey-homeboard;
-  border-radius: 20px;
-  padding: 5px 2rem 5px 2rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
   &:hover {
-    background-color: $grey-homeboard;
-    opacity: 0.7;
     color: white;
-    border: 1px solid;
+    background-color: $grey-homeboard;
     border-color: $grey-homeboard;
-    border-radius: 20px;
-    padding: 5px 2rem 5px 2rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  
   }
 }
+
 
 .button-green-t {
   background-color:  transparent;
@@ -153,13 +106,12 @@
   border-radius: 20px;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  text-decoration: none !important;
-}
-
-.button-green-t:hover {
-  color: white;
-  background-color: $green-homeboard;
-  border-color: $green-homeboard;
+  &:hover {
+    color: white;
+    background-color: $green-homeboard;
+    border-color: $green-homeboard;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
 
 .button-dark-grey-t {
@@ -170,6 +122,12 @@
   border-radius: 20px;
   padding: 5px 2rem 5px 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    color: white;
+    background-color: $black-homeboard;
+    border-color: $black-homeboard;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }
 
 .button-dark-grey-t:hover {
@@ -178,5 +136,14 @@
   border-color: $black-homeboard;
 }
 
+.button-green-lite {
+  text-decoration: none !important;
+  color: $green-homeboard;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
 
-
+.button-green-lite:hover {
+  text-decoration: none !important;
+  color: #03a090;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

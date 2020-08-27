@@ -1,45 +1,47 @@
 <div class="container mt-4">
 
-<%= link_to  services_path, class: 'link-without-style' do  %>
-  <h1 class="text-center">Services</h1>
-<% end %>
-
+  <%= link_to  services_path, class: 'link-without-style' do  %>
+    <h1 class="text-center">Services</h1>
+  <% end %>
 
 <div class="d-flex justify-content-center">
   <%= link_to "offer", services_path(category: params[:category] == "offer" ? "" : "offer"), 
-                       class: "m-5 #{params[:category] == 'offer' ? 'button-red-offer ' : 'button-red-t'}" %>
+                       class: "m-5 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
 
   <%= link_to "demand", services_path(category: params[:category] == "demand" ? "" : "demand"), 
-                       class: "m-5 #{params[:category] == 'demand' ? 'button-grey-demand' : 'button-grey-t'}" %>
+                       class: "m-5 without-decoration #{params[:category] == 'demand' ? 'button-grey' : 'button-grey-t'}" %>
 </div>
 
 
-<div class="grid-services">
-  <% @services.each do |service| %>
-    <div class="grid-col-services">
-      <%= link_to service_path(service), class: 'without-decoration' do %>
-        <div class="card-service">
-        <% if service.category == "offer" %>
-          <div class="card-service-offer">
-          </div>
-        <% else %>
-          <div class="card-service-demand">
+  <div class="grid-services">
+    <% @services.each do |service| %>
+      <div class="grid-col-services">
+        <%= link_to service_path(service), class: 'without-decoration' do %>
+          <div class="card-service">
+            <% if service.category == "offer" %>
+              <div class="card-service-offer">
+              </div>
+            <% else %>
+              <div class="card-service-demand">
+              </div>
+            <% end %>
+            <% if service.user.photo.attachment.nil? %>
+              <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-service-avatar") %>            
+            <% else %>
+              <%= cl_image_tag service.user.photo.key, crop: :fill, class: "card-service-avatar"%>
+            <% end %>
+            <div class="card-service-text">
+              <div class="card-service-title">
+                <%= service.title %>
+              </div>
+              <div class="card-service-body">
+                by <%= service.user.pseudo %> - <%= service.created_at.strftime("%F") %>
+              </div>
+            </div>
           </div>
         <% end %>
-          <div class="card-service-avatar">
-          </div>
-          <div class="card-service-text">
-            <div class="card-service-title">
-              <%= service.title %>
-            </div>
-            <div class="card-service-body">
-              by <%= service.user.pseudo %> - <%= service.created_at.strftime("%F") %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+      </div>
+    <% end %>
+  </div>
 
 </div>

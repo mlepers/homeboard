@@ -7,7 +7,11 @@
     }
   }
 
-  .boxhead a {
-    color: #FFFFFF;
-    text-decoration: none;
-    }
+.without-decoration-white a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.without-decoration {
+  text-decoration: none !important;
+}

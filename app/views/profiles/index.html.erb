@@ -1,13 +1,29 @@
-<div class="container mt-4">
-    <h1 class="text-center">Mes voisins</h1>
+<div class="container mt-4 mb-5">
+  <h1 class="text-center mb-4">Mes voisins</h1>
 
+  <div class="wrapper-neighbors">
     <% @users.each do |user| %>
-        <p><%= user.first_name %> <%= user.last_name %>
+          <div class="card-neighbors text-center">
+            <% if user.photo.attachment.nil? %>
+              <%= image_tag('Avatar_default.jpeg', crop: :fill, class: "neighbors-avatar") %>
+          <% else %>
+              <%= cl_image_tag user.photo.key, height: 150, width: 200, crop: :fill, class: "neighbors-avatar"%>
+          <% end %><br>
+          <strong><%= user.first_name %> <%= user.last_name %></strong>
+          <div class="secondary-information">
+              <% if user.description.nil? %>
+                <%= user.first_name %> prefers to stay discreet ;)
+              <% else %>
+                <%= user.description %>
+              <% end %>
+            </div>
+
         <%if current_user == user %>
-            <%= link_to "My profil", profile_path(user) %>
+            <br><%= link_to "🔧", profile_path(user), class: "button-green-lite" %>
         <% else %>
-            <%= link_to "Read more", profile_path(user) %>
+            <br><%= link_to "👁", profile_path(user), class: "button-green-lite" %>
         <% end %>
-        </p>
+        </div>
     <%end %>
+  </div>
 </div>
