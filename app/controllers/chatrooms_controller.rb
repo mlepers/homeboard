@@ -24,16 +24,32 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new
     p chatroom_params[:guest]
-    @chatroom.guest = User.find(chatroom_params[:guest])
-    @chatroom.host = current_user
+    guest = User.find(chatroom_params[:guest])
     authorize @chatroom
+    if Chatroom.where('guest_id = ? AND host_id = ?', guest, current_user).empty? && Chatroom.where('guest_id = ? AND host_id = ?', current_user, guest).empty? 
 
-    if @chatroom.save!
-      redirect_to chatroom_path(@chatroom)
-    else
-      render 'form'
+      @chatroom.guest = User.find(chatroom_params[:guest])
+      @chatroom.host = current_user
+      
+
+      if @chatroom.save!
+        redirect_to chatroom_path(@chatroom)
+      else
+        render 'form'
+      end
+
+    else  
+      if Chatroom.where('guest_id = ? AND host_id = ?', current_user, guest).empty?
+        @chatroom = Chatroom.where('guest_id = ? AND host_id = ?', guest, current_user)
+        redirect_to chatroom_path(@chatroom.first.id)
+      else
+        @chatroom = Chatroom.where('guest_id = ? AND host_id = ?', current_user, guest)
+        redirect_to chatroom_path(@chatroom.first.id)
+      end
+      
     end
   
+
   end
 
   private
