@@ -19,8 +19,11 @@
 
         <h2 class="text-center"><%= @user.first_name %> <%= @user.last_name %> </h2>
         <p class="text-center"><%= @user.pseudo %></p>
-        <p class="text-center"><strong>email : </strong><%= @user.email %> </p>
-        <hr class="pt-2 pb-1" style="width:30%;text-align:center;">
+        <% unless @user == current_user %>
+            <p class="text-center mb-5">
+                <%= link_to 'Start a chat with me', new_chatroom_path, class: "text-center button-green mb-5"%>
+            </p>
+        <% end %>
         <p class="text-center">
             <strong>Description : </strong>
             <% if @user.description.nil? %>
