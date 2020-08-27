@@ -7,10 +7,10 @@
 
 <div class="d-flex justify-content-center">
   <%= link_to "offer", services_path(category: params[:category] == "offer" ? "" : "offer"), 
-                       class: "m-5 #{params[:category] == 'offer' ? 'button-red-offer ' : 'button-red-t'}" %>
+                       class: "m-5 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
 
   <%= link_to "demand", services_path(category: params[:category] == "demand" ? "" : "demand"), 
-                       class: "m-5 #{params[:category] == 'demand' ? 'button-grey-demand' : 'button-grey-t'}" %>
+                       class: "m-5 without-decoration #{params[:category] == 'demand' ? 'button-grey' : 'button-grey-t'}" %>
 </div>
 
 
