@@ -8,12 +8,22 @@ class ProfilesController < ApplicationController
 
     def show
       @user = User.find(params[:id])
+      @chatroom_id = nil
+          if Chatroom.where('guest_id = ? AND host_id = ?', current_user, @user).empty?
+            @chatroom = Chatroom.where('guest_id = ? AND host_id = ?', @user, current_user)
+            unless @chatroom.count == 0
+              @chatroom_id= @chatroom.first.id
+            end
+          else
+            @chatroom = Chatroom.where('guest_id = ? AND host_id = ?', current_user, @user)
+            unless @chatroom.count == 0
+              @chatroom_id= @chatroom.first.id
+            end
+          end
       authorize @user
     end
     
    
-
-
     def edit
     end
   

@@ -24,7 +24,6 @@ class ChatroomsController < ApplicationController
 
   def create
     @chatroom = Chatroom.new
-    p chatroom_params[:guest]
     guest = User.find(chatroom_params[:guest])
     authorize @chatroom
     if Chatroom.where('guest_id = ? AND host_id = ?', guest, current_user).empty? && Chatroom.where('guest_id = ? AND host_id = ?', current_user, guest).empty? 
