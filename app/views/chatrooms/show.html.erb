@@ -1,21 +1,23 @@
 <div class="container">
-  <h1 class="text-center mt-4 mb-4" id="chat-title"><%= @other.pseudo %></h1>
-  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-    <% if @messages.empty?  %>
-      <p class="font-italic" id="no-message">There is no messages for the moment .... Go ahead and talk !</p>
-    <% else %>
-      <% @messages.each do |message| %>
-        <%= render 'messages/message', message: message %>
-      <% end %>
-    <% end %>
-  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-3">
+      <h1 class="text-center mt-4 mb-4" id="chat-title"><%= @other.pseudo %></h1>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <% if @messages.empty?  %>
+          <p class="font-italic" id="no-message">There is no messages for the moment .... Go ahead and talk !</p>
+        <% else %>
+          <% @messages.each do |message| %>
+            <%= render 'messages/message', message: message %>
+          <% end %>
+        <% end %>
+      </div>
 
-  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <div class="split-chatbar">
-    <div><%= f.input :content, label: false %></div>
-     <div class="text-right" ><%= button_tag type: 'submit' do %>
-      <i class="fas fa-paper-plane"></i></div>
-  <% end %>
-  <% end %>
-  </div>
+      <%= simple_form_for [ @chatroom, @message ], remote: true, html: {id: :form_message }  do |f| %>
+        <div class="split-chatbar">
+          <%= f.input :content, label: false %>
+          <i class="fas fa-paper-plane paper-button" id="paper-plane-send"></i>
+      <% end %>
+      </div>
+    </div>
+  <div>
 </div>
