@@ -18,14 +18,19 @@
   color: $green-homeboard;
 }
 
+
 @media(min-width: 1080px) {
   .mobile-menu-container {
     display: none;
   }
 }
 
+.active a {
+  color: $green-homeboard !important;
+}
+
 @media(max-width: 1080px) {
   .global-bottom {
   height: 100px;
+   }
   }
-}
