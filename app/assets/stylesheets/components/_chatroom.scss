@@ -71,6 +71,13 @@
 .paper-button {
   color: $green-homeboard;
   font-size: 24px;
+  background-color: #f7f7f7;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 0.5rem 1rem 0.5rem  0.5rem;
+  border-radius: 50%;
+
   &:hover {
     opacity:0.8;
     cursor: pointer;
