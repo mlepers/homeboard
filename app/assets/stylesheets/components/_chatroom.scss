@@ -1,8 +1,5 @@
 #messages {
-  border: 1px solid black;
-  background-color: white;
   height: 60vh;
-  padding: 1rem;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -15,17 +12,17 @@
 }
 
 .message-container-mine {
-  margin:1px 0;
-  padding: 3px;
+  margin:2px 0;
+  padding: 10px;
   border-radius: 10px;
   max-width: 400px;
   background-color: $green-homeboard;
   align-self: flex-end;
-
+  color: white;
 }
 
 .message-other {
-  margin:1px 0;
+  margin:2px 0;
   display: flex;
   align-items: center;
 }
@@ -38,7 +35,7 @@
 }
 
 .message-container-other {
-  padding: 3px;
+  padding: 10px;
   border-radius: 10px;
   max-width: 400px;
   background-color: $grey-homeboard;
@@ -47,6 +44,16 @@
 .message-content {
   width: 100%;
   word-break: break-word;
+}
+
+.split-chatbar {
+  display: grid;
+  grid-template-columns: 20fr 1fr;
+  grid-gap: 15px;
+}
+
+.button-send {
+  border:none;
 }
 
 @media(max-width: 920px) {
