@@ -26,9 +26,11 @@ require("channels")
 import "bootstrap";
 import "../plugins/flatpickr"
 import { initChatroomCable } from "../channels/chatroom_channel";
+import { pressEnterSubmit } from "../plugins/enterbutton"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
+  pressEnterSubmit();
 });

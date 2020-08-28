@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
 
+  skip_before_action :verify_authenticity_token, :only => [:create]
+
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
     @messages = @chatroom.messages

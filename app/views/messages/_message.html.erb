@@ -21,7 +21,7 @@
   <div class="message-container-other" id="message-<%= message.id %>" data-id = "<%= message.id %>">
 <% end %>
     <div class="message-content"><%= message.content %></div>
-    <small class="font-italic d-flex justify-content-end"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+    <small class="message-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
   </div>
 <% unless message.user == current_user %>
 </div>
