@@ -2,10 +2,10 @@
 <h1 class="text-center ">Services</h1>
 <div class="d-flex justify-content-center">
 
-  <%= link_to "offers", services_path(category: params[:category] == "offer" ? "" : "offer"),
+  <%= link_to "Enjoy it !", services_path(category: params[:category] == "offer" ? "" : "offer"),
                        class: "mt-2 mb-4 ml-5 mr-5 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
 
-  <%= link_to "demands", services_path(category: params[:category] == "demand" ? "" : "demand"),
+  <%= link_to "Hep them !", services_path(category: params[:category] == "demand" ? "" : "demand"),
                        class: "mt-2 mb-4 ml-5 mr-5 without-decoration #{params[:category] == 'demand' ? 'button-dark-grey' : 'button-dark-grey-t'}" %>
 
 </div>
