@@ -23,9 +23,7 @@
 
 .message-other {
   margin:2px 0;
-  display: flex;
-  align-items: center;
-  height: auto;
+
 }
 
 .message-avatar {
@@ -39,7 +37,6 @@
   padding: 10px;
   border-radius: 10px;
   max-width: 400px;
-  height: 100%;
   background-color: $grey-homeboard;
 }
 
@@ -98,6 +95,6 @@
     bottom: 50px;
   }
   #messages {
- 
+    height: 55vh;
   }
 }
