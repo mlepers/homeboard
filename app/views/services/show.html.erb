@@ -93,8 +93,8 @@
       </div>
 
       <div class="card-comment-text">
-        <div class="card-service-body">
-            <%=comment.created_at  %>
+        <div class="card-service-text">
+            <%=comment.created_at.localtime.strftime("%a %b %e at %l:%M%p")  %>
         </div>
         <span class="mb-0">
           <%= comment.content %>
