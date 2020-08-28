@@ -14,9 +14,11 @@
     </div>
 
     <div class="text-center without-decoration-white <%='active' if current_page?(new_service_path) %>">
-      <%= link_to(new_service_path) do %>
-        <i class="fas fa-plus-circle"></i><br> Add post
-      <% end %>
+      <div data-turbolinks="false">
+        <%= link_to(new_service_path) do %>
+          <i class="fas fa-plus-circle"></i><br> Add post
+        <% end %>
+      </div>
     </div>
 
     <div class="text-center without-decoration-white <%='active' if current_page?(current_user.residence) %>">
