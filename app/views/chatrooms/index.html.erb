@@ -1,7 +1,6 @@
 <div class="container my-4">
 
-<h1 class="text-center">My chats</h1>
-<%= link_to "Add a chat", new_chatroom_path  %>
+<h1 class="text-center mb-4">My messages</h1>
   <% @chatrooms.each do |chatroom| %>
   <% if chatroom.guest == current_user %>
     <% other = chatroom.host %>
@@ -33,6 +32,7 @@
       </div>
     <% end %>
   <% end %>
+  <div class="mb-5 mt-5 button text-center"><%= link_to "Start new conversation", new_chatroom_path, class: "without-decoration button-green"  %></div>
 </div>
 
 

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center" id="chat-title"><%= @other.pseudo %></h1>
+  <h1 class="text-center mt-4 mb-4" id="chat-title"><%= @other.pseudo %></h1>
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% if @messages.empty?  %>
       <p class="font-italic" id="no-message">There is no messages for the moment .... Go ahead and talk !</p>
@@ -11,7 +11,11 @@
   </div>
 
   <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-    <%= f.input :content, label: false %>
-    <%= f.button :submit %>
+  <div class="split-chatbar">
+    <div><%= f.input :content, label: false %></div>
+     <div class="text-right" ><%= button_tag type: 'submit' do %>
+      <i class="fas fa-paper-plane"></i></div>
   <% end %>
+  <% end %>
+  </div>
 </div>

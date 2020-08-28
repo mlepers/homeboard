@@ -32,3 +32,8 @@
 .active a {
   color: $green-homeboard !important;
 }
+
+  @media(min-width: 1080px) {
+  .global-bottom {
+  height: 100px;
+  }
