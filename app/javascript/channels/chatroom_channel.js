@@ -2,8 +2,8 @@ import consumer from "./consumer";
 
 const scrollLastMessage = () => {
   const messages = document.getElementById('messages');
-  const lastMessage = messages.lastElementChild;
-  if (lastMessage !== undefined) {
+  if (messages) {
+    const lastMessage = messages.lastElementChild;
     lastMessage.scrollIntoView();
   };
 };
@@ -50,3 +50,4 @@ const initChatroomCable = () => {
 }
 
 export { initChatroomCable };
+export { scrollLastMessage };
