@@ -27,3 +27,9 @@
 .global-bottom {
   height: 100px;
 }
+
+@media(min-width: 1080px) {
+  .global-bottom {
+  height: 100px;
+  }
+}

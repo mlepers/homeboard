@@ -1,8 +1,8 @@
-<div class="container">
-  <h6>Start a conversation</h6>
-  <%= simple_form_for(chatroom) do |f| %>    
-    <%= f.input :guest, collection: users  %>
-    <%= f.button :submit %>
+<div class="container mt-4">
+  <h1>Start a new conversation</h1>
+  <%= simple_form_for(chatroom) do |f| %>
+    <%= f.input :guest, collection: users, label: "with who ?"  %>
+    <%= f.button :submit, 'Lets go!', class: "button-green mt-4" %>
   <% end %>
 </div>
 
