@@ -15,3 +15,11 @@
 .without-decoration {
   text-decoration: none !important;
 }
+
+.link-green {
+  color: $green-homeboard;
+  &:hover {
+    color: $green-homeboard;
+    opacity: 0.8;
+  }
+}
