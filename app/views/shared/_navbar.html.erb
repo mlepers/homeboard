@@ -9,18 +9,18 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item d-flex align-items-center">
+          <li class="nav-item d-flex align-items-center <%='active' if current_page?(root_path) %>">
             <%= link_to "Services", root_path, class: "navlink" %>
           </li>
-          <li class="nav-item d-flex align-items-center">
+          <li class="nav-item d-flex align-items-center <%='active' if current_page?(chatrooms_path) %>">
             <%= link_to "Messages",  chatrooms_path, class: "navlink"%>
           </li>
           <% if current_user %>
-            <li class="nav-item d-flex align-items-center">
+            <li class="nav-item d-flex align-items-center <%='active' if current_page?(current_user.residence) %>">
               <%= link_to "Copro", residence_path(current_user.residence) , class: "navlink"%>
             </li>
           <% end %>
-          <li class="nav-item d-flex align-items-center">
+          <li class="nav-item d-flex align-items-center <%='active' if current_page?(profiles_path) %>">
             <%= link_to "Neighbors", profiles_path, class: "navlink"%>
           </li>
           <li class="nav-item d-flex align-items-center">
@@ -45,9 +45,9 @@
         <% end %>
         </div>
         <div class="nav-item dropdown ml-3">
-          <% if (current_user.nil? || current_user.photo.attachment.nil?) %> 
+          <% if (current_user.nil? || current_user.photo.attachment.nil?) %>
             <%= image_tag('Avatar_default.jpeg', class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } ) %>
-          <% else %> 
+          <% else %>
             <%= cl_image_tag current_user.photo.key, class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
