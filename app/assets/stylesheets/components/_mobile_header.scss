@@ -1,10 +1,12 @@
-.mobile-header-container {
-  padding: 20px 30px;
-  background-color: white;
-}
-
 .mobile-top-toolbar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 1rem;
+  h4 {
+    margin-bottom: 0 !important;
+  }
 }
 
 @media(min-width: 1080px) {
