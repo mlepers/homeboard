@@ -7,9 +7,9 @@
         <%= f.input :title %>
         <%= f.input :description %>
         <i class="fas fa-calendar-week"></i>
-        <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", min: Date.today} %>
+        <%= f.input :start_at, as: :string, required: false, input_html: {id: "range_start" } %>
         <i class="fas fa-calendar-week"></i>
-        <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker"}, min: Date.today  %>
+        <%= f.input :end_at, as: :string, required: false, input_html: {id: "range_end" }  %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.button :submit, class: "button-green" %>
       </div>
