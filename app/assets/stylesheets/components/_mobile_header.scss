@@ -3,14 +3,14 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 1rem 1rem;
+  padding: 0.5rem 1rem;
   h4 {
     margin-bottom: 0 !important;
   }
 }
 
 @media(min-width: 1080px) {
-  .mobile-header-container {
+  .mobile-top-toolbar {
     display: none;
   }
 }
