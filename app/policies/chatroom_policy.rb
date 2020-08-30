@@ -1,7 +1,7 @@
 class ChatroomPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where('guest_id = ? OR host_id = ?', user, user)
     end
   end
   def show?

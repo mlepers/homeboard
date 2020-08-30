@@ -1,7 +1,7 @@
 class ChatroomsController < ApplicationController
 
   def index
-    @chatrooms = policy_scope(Chatroom).where('guest_id = ? OR host_id = ?', current_user, current_user)
+    @chatrooms = policy_scope(Chatroom).includes(:messages).order("messages.created_at DESC")
   end
 
   def show 

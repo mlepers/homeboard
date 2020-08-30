@@ -21,10 +21,10 @@
           <% unless chatroom.messages.empty? %>
             <div class="card-chatroom-body">
               <div class="card-chatroom-last-message">
-                <%= chatroom.messages.last.content %>
+                <%= chatroom.messages.first.content %>
               </div>
               <div class="card-chatroom-date">
-                <%= chatroom.messages.last.created_at.strftime("%a %b %e") %>
+                <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
               </div>
             </div>
           <% end %>
