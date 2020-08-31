@@ -97,18 +97,18 @@
         <% end %>
         <div class="card-service-title">
           <%= link_to  profile_path(comment.user), class: "link-without-style" do %>
-            <p class="ml-2 mt-1"> <%=comment.user.first_name%> <%=comment.user.last_name[0]%>.</p>
+            <p class="ml-2 mt-0"> <%=comment.user.first_name%> <%=comment.user.last_name[0]%>.</p>
           <% end %>
         </div>
       </div>
 
       <div class="card-comment-text">
-        <div class="card-service-text">
+        <div class="card-service-text position-date">
             <%=comment.created_at.localtime.strftime("%a %b %e at %l:%M%p")  %>
         </div>
-        <span class="mb-0">
-          <%= comment.content %>
-        </span>
+          <span class="mb-1">
+            <%= comment.content %>
+          </span>
         <%if current_user == comment.user %>
           <%= link_to service_comment_path(@service, comment), class: "link-without-style", method: :delete, data: {confirm: "Delete this comment ?"} do %>
             <i class="far fa-trash-alt"></i>
