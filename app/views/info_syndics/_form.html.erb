@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 offset-sm-3">
+    <div class="form-login mt-2">
+      <%= simple_form_for(info_syndic, remote: true) do |f| %>
+      <div class="container">
+        <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["alert", "info"]  %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+        <%= f.button :submit, class: "button-green" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

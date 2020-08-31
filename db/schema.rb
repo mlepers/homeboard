@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_08_31_075512) do
+=======
+ActiveRecord::Schema.define(version: 2020_08_31_133235) do
+>>>>>>> a769b435043509bb24963d599cc644faad69bb31
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +58,19 @@ ActiveRecord::Schema.define(version: 2020_08_31_075512) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["service_id"], name: "index_comments_on_service_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "info_syndics", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.string "category"
+    t.boolean "seen", default: false
+    t.bigint "residence_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["residence_id"], name: "index_info_syndics_on_residence_id"
+    t.index ["user_id"], name: "index_info_syndics_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -118,6 +135,8 @@ ActiveRecord::Schema.define(version: 2020_08_31_075512) do
   add_foreign_key "chatrooms", "users", column: "host_id"
   add_foreign_key "comments", "services"
   add_foreign_key "comments", "users"
+  add_foreign_key "info_syndics", "residences"
+  add_foreign_key "info_syndics", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "services", "users"

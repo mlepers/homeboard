@@ -1,7 +1,7 @@
 .grid-services {
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, calc(50% - 10px));
   grid-gap: 20px;
 }
 

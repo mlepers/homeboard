@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     resources :messages, only: [ :create ]
   end
 
+  resources :info_syndics, only: [ :new, :create, :update ]
 end

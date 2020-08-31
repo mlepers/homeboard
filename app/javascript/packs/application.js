@@ -29,6 +29,7 @@ import { initChatroomCable } from "../channels/chatroom_channel";
 import { scrollLastMessage } from "../channels/chatroom_channel";
 import { initNotificationCable } from "../channels/notification_channel";
 import { pressEnterSubmit } from "../plugins/enterbutton"
+import { changeArrow } from "../plugins/arrow"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -37,5 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   pressEnterSubmit();
   initNotificationCable();
-
+  changeArrow();
 });
