@@ -18,21 +18,26 @@
           <div class="card-chatroom-title">
             <%= other.pseudo %>
           </div>
-          <% unless chatroom.messages.empty? %>
-            <div class="card-chatroom-body">
-              <div class="card-chatroom-last-message">
-                <%= chatroom.messages.first.content %>
+
+          <div id="chatroom-<%=chatroom.id%>">
+            <% unless chatroom.messages.empty? %>
+              <div class="card-chatroom-body">
+                <div class="card-chatroom-last-message">
+                  <%= chatroom.messages.first.content %>
+                </div>
+                
+                  <% if chatroom.nb_of_unseen_messages(current_user) > 0 %>
+                      <div class="text-danger" id="notification-<%=chatroom.id%>"> <%= chatroom.nb_of_unseen_messages(current_user)%> </div>
+                  <% end %>
+              
+                <div class="card-chatroom-date">
+                  <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
+                </div>
               </div>
-              <div id="number_of_notif">
-                <% if chatroom.nb_of_unseen_messages(current_user) > 0 %>
-                    <div class="avatar-red" id="notification-<%=chatroom.id%>"> <%= chatroom.nb_of_unseen_messages(current_user)%> </div>
-                <% end %>
-              </div>
-              <div class="card-chatroom-date">
-                <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+
+
         </div>
       </div>
     <% end %>

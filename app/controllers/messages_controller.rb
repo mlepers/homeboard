@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
       if @other == current_user
         NotificationChannel.broadcast_to(
           "notification", 
-          {notif_id: "notification-#{@chatroom.id}", receiver: @other}
+          {chatroom: "#{@chatroom.id}", receiver: @other}
         )
       end
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")

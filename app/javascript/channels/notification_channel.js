@@ -4,15 +4,16 @@ const initNotificationCable = () => {
  
      consumer.subscriptions.create({ channel: "NotificationChannel" }, {
       received(data) {
-        const notificationsContainer = document.querySelector(`#${data.notif_id}`);
-        console.log(data.curent_user);
+        const notificationsContainer = document.querySelector(`#notification-${data.chatroom}`);
+        console.log(notificationsContainer);
           if (notificationsContainer == null) {
-            const noNotif = document.querySelector(`#number_of_notif`);
-            const fisrtNotificationBadge = `<div class="avatar-red" id="${data.notif_id}">1</div>`;
-            noNotif.insertAdjacentHTML('beforebegin', fisrtNotificationBadge);  
+            const noNotif = document.querySelector(`#chatroom-${data.chatroom}`);
+            const NotificationBadgeFirst = `<div class="text-danger" id="notification-${data.chatroom}">1</div>`;
+            noNotif.insertAdjacentHTML('afterend', NotificationBadgeFirst);  
+            noNotif.remove()
           } else {
             const numberOfNotifications = parseInt(notificationsContainer.innerText);
-            const newNotificationBadge = `<div class="avatar-red" id="${data.notif_id}">${numberOfNotifications +1}</div>`;
+            const newNotificationBadge = `<div class="text-danger" id="notification-${data.chatroom}">${numberOfNotifications +1}</div>`;
             notificationsContainer.insertAdjacentHTML('beforebegin', newNotificationBadge);  
             notificationsContainer.remove()
           }
