@@ -6,7 +6,6 @@
         <% if @messages.empty?  %>
           <p class="font-italic" id="no-message">There is no messages for the moment .... Go ahead and talk !</p>
         <% else %>
-          <% @chatroom.mark_all_messages_recieved_as_seen(current_user) %>
           <% @messages.each do |message| %>
             <%= render 'messages/message', message: message %>
           <% end %>

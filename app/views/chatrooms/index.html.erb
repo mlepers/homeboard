@@ -2,11 +2,11 @@
 
 <h1 class="text-center mb-4">My messages</h1>
   <% @chatrooms.each do |chatroom| %>
-  <% if chatroom.guest == current_user %>
-    <% other = chatroom.host %>
-  <% else %>
-    <% other = chatroom.guest %>
-  <% end %>
+    <% if chatroom.guest == current_user %>
+      <% other = chatroom.host %>
+    <% else %>
+      <% other = chatroom.guest %>
+    <% end %>
     <%= link_to chatroom_path(chatroom), class:'without-decoration' do %>
       <div class="card-chatroom">
         <% if other.photo.attachment.nil? %>

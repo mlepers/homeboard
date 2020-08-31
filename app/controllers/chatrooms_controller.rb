@@ -4,8 +4,9 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom).includes(:messages).order("messages.created_at DESC")
   end
 
-  def show 
+  def show
     @chatroom = Chatroom.find(params[:id])
+    @chatroom.mark_all_messages_recieved_as_seen(current_user)
     @messages = @chatroom.messages
     @message = Message.new
     if current_user == @chatroom.guest 
