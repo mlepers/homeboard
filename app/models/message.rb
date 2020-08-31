@@ -3,7 +3,7 @@ class Message < ApplicationRecord
   belongs_to :user
 
   def seen!
-    true
+    self.seen = true
   end
-  
+
 end
