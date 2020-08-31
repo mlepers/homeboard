@@ -35,7 +35,7 @@
 
 <% end %>
 
- <p class="mt-4 mb-4 text-center">
+ <div class="mt-4 mb-4 text-center">
     <%= link_to profile_path(@service.user), class: "link-without-style" do %>
       <% if @service.user.photo.attachment.nil? %>
         <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "avatar") %>
@@ -45,7 +45,19 @@
     <% end %>
 
     <span class="ml-2">by <%= link_to @service.user.pseudo, profile_path(@service.user), class: "link-without-style" %></span>
-  </p>
+
+  <%if current_user == @service.user %>
+    <%= link_to edit_service_path(@service), class: "link-without-style ml-3" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        <% end %>
+
+    <%if current_user == @service.user %>
+    <%= link_to service_path(@service), class: "link-without-style ml-2", method: :delete, data: {confirm: "Delete this service?"} do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        <% end %>
+  </div>
 
 
 
@@ -61,13 +73,6 @@
       <p class="mb-5">From <strong><%= @service.start_at %></strong> to <strong><%= @service.end_at %></strong></p>
     <% end %>
   <% end %>
-
-<div class="mb-5 text-center">
-  <%if current_user == @service.user %>
-    <%= link_to "Update", edit_service_path(@service), class: "button-green-t mr-2" %>
-    <%= link_to "Delete", service_path(@service), class: "ml-2 button-red-t", method: :delete, data: {confirm: "Are you sure ?"} %>
-  <% end %>
-</div>
 
 
 
