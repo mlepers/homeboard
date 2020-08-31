@@ -34,3 +34,9 @@
   height: 100px;
    }
   }
+
+  @media(max-width: 1080px) {
+  .hide-1080px {
+    display: none;
+  }
+}
