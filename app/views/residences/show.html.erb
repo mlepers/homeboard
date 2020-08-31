@@ -4,21 +4,23 @@
   <p class="text-center mt-4 mb-4 secondary-information">
     <%= @residence.name %> - <%= @residence.address  %>
   </p>
-  <% if @info_syndics.present? %>
-    <% @info_syndics.each do |info| %>
-      <% if info.category == "alert" %>
-        <div class="alert-red">
-      <% else %>
-        <div class="alert-green">
-      <% end %>
-        <strong><%= info.title %></strong>
-        <div class="alert-body">
-          <div><%= info.content %></div>
-          <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  <div id="alerts">
+    <% if @info_syndics.present? %>
+      <% @info_syndics.each do |info| %>
+        <% if info.category == "alert" %>
+          <div class="alert-red">
+        <% else %>
+          <div class="alert-green">
+        <% end %>
+          <strong><%= info.title %></strong>
+          <div class="alert-body">
+            <div><%= info.content %></div>
+            <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
   <div class="text-center">
     <h6 class="mt-5">My syndic contact</h6>
     <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598537789/stephane-plaza-dyspraxie-isopix_kikbtf.jpg', crop:"fill", class: "img-copro") %>

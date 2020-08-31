@@ -49,3 +49,15 @@
   right: 3px;
 }
 
+#alerts {
+  height: 65vh;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+#alerts::-webkit-scrollbar {
+  display: none;
+}
+
