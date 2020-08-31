@@ -1,3 +1,13 @@
 #query {
-  border-radius: 20px;
+  border-radius: 25px 0 0 25px;
+  &:focus {
+    border-color: none;
+    box-shadow: none;
+  }
+}
+
+.search {
+  border: 1px solid $green-homeboard;
+  border-radius: 0 25px 25px 0;
+  background-color: $green-homeboard;
 }
