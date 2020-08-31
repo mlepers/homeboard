@@ -37,7 +37,7 @@
           <%end  %>
         </div>
         <% unless @user == current_user %>
-            <div class="text-center mb-4">
+            <div class="text-center mt-4 mb-4">
             <% if Chatroom.where('guest_id = ? AND host_id = ?', @user, current_user).empty? && Chatroom.where('guest_id = ? AND host_id = ?', current_user, @user).empty? %>
                 <%= link_to 'Send a message', chatrooms_path(chatroom: {guest: @user}), method: :post, class: "text-center button-green mb-5"%>
             <% else %>
