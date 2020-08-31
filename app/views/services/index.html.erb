@@ -23,8 +23,7 @@
 
   <%= link_to "Help them !", services_path(category: params[:category] == "demand" ? "" : "demand"),
                        class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'demand' ? 'button-dark-grey' : 'button-dark-grey-t'}" %>
-
-  </div>
+</div>
   <div class="grid-services">
     <% @services.each do |service| %>
       <div class="grid-col-services">
