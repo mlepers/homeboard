@@ -1,7 +1,8 @@
 .wrapper-neighbors {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: repeat(5, calc(20% - 4* 15px / 5));
   grid-gap: 15px;
+  flex-wrap: wrap;
 }
 
 .card-neighbors {
@@ -38,13 +39,14 @@
 
 @media(max-width: 1080px) {
   .wrapper-neighbors {
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, calc(25% - 3 * 15px / 4));
   }
 }
 
 @media(max-width: 780px) {
   .wrapper-neighbors {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, calc(50% - 5px));
+    grid-gap: 10px;
   }
 }
 

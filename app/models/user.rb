@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :services, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :messages
+  has_many :info_syndics
   belongs_to :residence
   has_one_attached :photo
 

@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroy all data"
 
+InfoSyndic.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 Comment.destroy_all
@@ -28,12 +29,12 @@ thomas = User.create!(first_name: "Thomas", last_name: "Quetu", pseudo: "thom", 
 puts "Creating Services ..."
 
 service_one = Service.create!(title: "Crêpe party", description: "Je vous propose de partager un moment convivial entre voisins autour de bonnes crêpes !", start_at: Date.today, end_at: Date.today + 3, user: maxence, category: "offer")
-service_two = Service.create!(title: "Besoin d'un baby sitter", description: "Je recherche un baby-sitter pour garder ma fille ce soir à partir de 18h.", start_at: Date.today - 5, end_at: Date.today - 2, user: thomas, category: "demand")
-service_three = Service.create!(title: "PSG / Bayern", description: "Open house pour venir regarder le match sur mon grand écran ! Venez avec bières et pizzas !", start_at: Date.today - 10, end_at: Date.today - 7, user: marie, category: "offer")
+service_two = Service.create!(title: "Besoin d'un baby sitter", description: "Je recherche un baby-sitter pour garder ma fille ce soir à partir de 18h.", start_at: Date.today + 5, end_at: Date.today + 8, user: thomas, category: "demand")
+service_three = Service.create!(title: "PSG / Bayern", description: "Open house pour venir regarder le match sur mon grand écran ! Venez avec bières et pizzas !", start_at: Date.today + 10, end_at: Date.today + 13, user: marie, category: "offer")
 service_four = Service.create!(title: "Service de peinture", description: "Je vous propose mes talents de peintre pour refaire vos murs !", start_at: Date.today + 2, end_at: Date.today + 4, user: maxence, category: "offer")
-service_five = Service.create!(title: "Cat-sitter", description: "En tant que grand ami des chats, je vous propose de venir garder les vôtres pendant votre absence!", start_at: Date.today - 5, end_at: Date.today, user: mickael, category: "offer")
+service_five = Service.create!(title: "Cat-sitter", description: "En tant que grand ami des chats, je vous propose de venir garder les vôtres pendant votre absence!", start_at: Date.today + 5, end_at: Date.today + 10, user: mickael, category: "offer")
 service_six = Service.create!(title: "Qui pourrait venir nourrir mon poisson?" , description: "Je pars 2 semaines et recherche quelqu'un pour venir nourrir mon poisson rouge.", start_at: Date.today + 5, end_at: Date.today + 12, user: thomas, category: "demand")
-service_seven = Service.create!(title: "Receptionner un colis", description: "Je dois recevoir un colis la semaine prochaine, quelqu'un de dispo pour le receptionner en mon abesence? ", start_at: Date.today - 1, end_at: Date.today, user: marie, category: "demand")
+service_seven = Service.create!(title: "Receptionner un colis", description: "Je dois recevoir un colis la semaine prochaine, quelqu'un de dispo pour le receptionner en mon abesence? ", start_at: Date.today + 1, end_at: Date.today + 3, user: marie, category: "demand")
 service_eigth = Service.create!(title: "M'aider à monter un canap'", description: "Quelqu'un de dispo pour m'aider à monter un canap Ikea? Bières en remerciement !", user: thomas, category: "demand")
 service_nine = Service.create!(title: "Offre de BBsitting", description: "Ma fille de 16 ans est dispo pour garder vos enfants !", user: mickael, category: "offer")
 service_ten = Service.create!(title: "Donne un lave-linge", description: "Nous changeons de lave-linge et donnons notre ancien, si cela intéresse quelqu'un!", start_at: Date.today, end_at: Date.today + 2, user: marie, category: "offer")
@@ -41,6 +42,17 @@ service_ten = Service.create!(title: "Donne un lave-linge", description: "Nous c
 puts "Creating a chatroom ..."
 
 chatroom = Chatroom.create!(guest: maxence, host: thomas)
+
+puts "Creating infos syndic ..."
+
+info1 = InfoSyndic.create!(title: "Attention Voiture", content:"Des travaux près de la résidence le 15 juillet, merci de faire de la place", category:"alert", user: marie, residence: notre_residence)
+info2 = InfoSyndic.create!(title: "Attention Voiture", content:"Des travaux près de la résidence le 15 juillet, merci de faire de la place", category:"alert", user: maxence, residence: notre_residence)
+info3 = InfoSyndic.create!(title: "Attention Voiture", content:"Des travaux près de la résidence le 15 juillet, merci de faire de la place", category:"alert", user: mickael, residence: notre_residence)
+info4 = InfoSyndic.create!(title: "Attention Voiture", content:"Des travaux près de la résidence le 15 juillet, merci de faire de la place", category:"alert", user: thomas, residence: notre_residence)
+info5 = InfoSyndic.create!(title: "Chat perdu dans la residence voisine", content:"Chat de couleur grise, si vous le voyez, merci de prévenir Jenny", category:"info", user: marie, residence: notre_residence)
+info6 = InfoSyndic.create!(title: "Chat perdu dans la residence voisine", content:"Chat de couleur grise, si vous le voyez, merci de prévenir Jenny", category:"info", user: maxence, residence: notre_residence)
+info7 = InfoSyndic.create!(title: "Chat perdu dans la residence voisine", content:"Chat de couleur grise, si vous le voyez, merci de prévenir Jenny", category:"info", user: mickael, residence: notre_residence)
+info8 = InfoSyndic.create!(title: "Chat perdu dans la residence voisine", content:"Chat de couleur grise, si vous le voyez, merci de prévenir Jenny", category:"info", user: thomas, residence: notre_residence)
 
 puts "Finished"
 
