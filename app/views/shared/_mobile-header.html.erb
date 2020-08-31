@@ -3,19 +3,15 @@
     <div class="mobile-top-toolbar">
       <h4 class="mb-4 mr-4">H</h4>
       <% if params[:controller] == "profiles" && params[:action] == "index" %>
-        <div class="searchflex">
-          <%= form_tag profiles_path, method: :get, class: "form-inline" do %>
-              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a neighbour" %>
-              <%= submit_tag "🔎", class: "btn" %>
-          <% end %>
-        </div>
+        <%= form_tag profiles_path, method: :get, class: "form-inline-always" do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a neighbour" %>
+            <%= submit_tag "🔎", class: "btn" %>
+        <% end %>
       <% else %>
-        <div class="searchflex">
-          <%= form_tag services_path, method: :get, class: "form-inline" do %>
-              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a service" %>
-              <%= submit_tag "🔎", class: "btn" %>
-          <% end %>
-        </div>
+        <%= form_tag services_path, method: :get, class: "form-inline-always" do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a service" %>
+            <%= submit_tag "🔎", class: "btn" %>
+        <% end %>
       <% end %>
       <div class="nav-item dropdown ml-4">
         <% if (current_user.nil? || current_user.photo.attachment.nil?) %> 
