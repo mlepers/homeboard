@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_085253) do
+ActiveRecord::Schema.define(version: 2020_08_31_101757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_085253) do
     t.string "title"
     t.text "content"
     t.string "category"
-    t.boolean "seen"
+    t.boolean "seen", default: false
     t.bigint "residence_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

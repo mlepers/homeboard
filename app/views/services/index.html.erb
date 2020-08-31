@@ -1,6 +1,22 @@
 <div class="container mt-4">
-<h1 class="text-center ">Services</h1>
-<div class="d-flex justify-content-center">
+  <% if @alert.present? %>
+    <div class="alert-red">
+      <%= link_to services_path, class: "alert-link font-weight-normal", data: {toggle:"collapse", target:"#collapseInfos"}, aria: { expanded: false} do %>
+        <i id="arrow" class="fas fa-angle-down"></i>
+      <% end %>
+      <strong><%= @alert.title %></strong>
+      <div class="alert-cross">
+        <%= link_to info_syndic_path(@alert), method: :patch do  %> 
+          <i class="fas fa-times alert-link"></i>
+        <% end %>
+      </div>
+      <div class="collapse" id="collapseInfos">
+        <%= @alert.content %>
+      </div>
+    </div>
+  <% end %>
+  <h1 class="text-center ">Services</h1>
+  <div class="d-flex justify-content-center">
 
   <%= link_to "Enjoy it !", services_path(category: params[:category] == "offer" ? "" : "offer"),
                        class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
@@ -8,9 +24,7 @@
   <%= link_to "Help them !", services_path(category: params[:category] == "demand" ? "" : "demand"),
                        class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'demand' ? 'button-dark-grey' : 'button-dark-grey-t'}" %>
 
-</div>
-
-
+  </div>
   <div class="grid-services">
     <% @services.each do |service| %>
       <div class="grid-col-services">
@@ -41,5 +55,4 @@
       </div>
     <% end %>
   </div>
-
 </div>

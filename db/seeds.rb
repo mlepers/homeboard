@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroy all data"
 
+InfoSyndic.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 Comment.destroy_all

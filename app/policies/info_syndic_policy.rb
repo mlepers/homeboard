@@ -10,7 +10,7 @@ class InfoSyndicPolicy < ApplicationPolicy
   end
 
   def update?
-    user == record.user
+    true
   end
   
 end

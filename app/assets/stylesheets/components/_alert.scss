@@ -19,16 +19,16 @@
   padding: 15px;
   margin-bottom: 15px;
   color: $red-homeboard;
+  position: relative;
 }
 
 .alert-link {
   text-decoration: none !important;
   color: $red-homeboard;
-  font-weight: bold;
 }
 
 .alert-link:hover {
-  color: rgb(224, 75, 75);
+  color: rgb(228, 46, 46);
 }
 
 .img-copro {
@@ -37,3 +37,10 @@
   height: 120px;
   margin: 15px 0px;
 }
+
+.alert-cross {
+  position: absolute;
+  top: 0;
+  right: 3px;
+}
+
