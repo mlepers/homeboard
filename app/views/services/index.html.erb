@@ -15,8 +15,8 @@
       </div>
     </div>
   <% end %>
-  <h1 class="text-center ">Services</h1>
-  <div class="d-flex justify-content-center">
+<h1 class="text-center hide-1080px">Services</h1>
+<div class="d-flex justify-content-center">
 
   <%= link_to "Enjoy it !", services_path(category: params[:category] == "offer" ? "" : "offer"),
                        class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
