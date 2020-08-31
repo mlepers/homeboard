@@ -60,11 +60,10 @@
   </div>
 
 
-
-
-  <p class="mt-4"><%= @service.description %></p>
+  <div class="card-description-service"><%= @service.description %></div>
 
   <% unless @service.start_at.nil? %>
+  <div class="mt-4 text-center">
     <h5>When?</h5>
 
     <% if @service.start_at == @service.end_at %>
@@ -73,6 +72,7 @@
       <p class="mb-5">From <strong><%= @service.start_at %></strong> to <strong><%= @service.end_at %></strong></p>
     <% end %>
   <% end %>
+  </div>
 
 
 

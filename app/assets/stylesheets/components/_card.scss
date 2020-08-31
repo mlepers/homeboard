@@ -154,4 +154,11 @@
   opacity: 0.8;
 }
 
-
+.card-description-service {
+  background-color: $green-homeboard;
+  box-shadow: 1px 1px 1px #eeeeee;
+  color: $white-homeboard;
+  padding:15px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
