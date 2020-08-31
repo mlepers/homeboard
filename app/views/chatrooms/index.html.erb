@@ -23,8 +23,8 @@
               <div class="card-chatroom-last-message">
                 <%= chatroom.messages.first.content %>
               </div>
-              <% if chatroom.nb_of_unseen_messages > 0 %>
-                  <span class="avatar-red"> <%= chatroom.nb_of_unseen_messages%> </span>
+              <% if chatroom.nb_of_unseen_messages(current_user) > 0 %>
+                  <span class="avatar-red"> <%= chatroom.nb_of_unseen_messages(current_user)%> </span>
                 <% end %>
               <div class="card-chatroom-date">
                 <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
