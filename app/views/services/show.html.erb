@@ -2,45 +2,12 @@
 
   <h1 class="mb-4 text-center"> <%= @service.title %></h1>
 
-<% unless @service.photos.count == 0 %>
-<div class="image-carrousel container">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <% if @service.photos.count == 1  %>
-            <%= cl_image_tag @service.photos.first.key, height: 300, width: 400, crop: :fill, class: 'd-block rounded'%>
-        <% else %>
-          <div class="carousel-item active">
-            <%= cl_image_tag @service.photos.first.key, height: 300, width: 400, crop: :fill, class: 'd-block rounded'%>
-          </div>
-          <% @service.photos[1..].each do |photo| %>
-            <div class="carousel-item">
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'd-block rounded'%>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-      <% unless @service.photos.count == 1  %>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      <% end %>
-  </div>
-</div>
-
-
-<% end %>
-
- <div class="mt-4 mb-4 text-center">
+  <div class="text-center">
     <%= link_to profile_path(@service.user), class: "link-without-style" do %>
       <% if @service.user.photo.attachment.nil? %>
         <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "avatar") %>
       <% else %>
-        <%= cl_image_tag @service.user.photo.key, crop: :fill, class: "avatar"%>
+        <%= cl_image_tag @service.user.photo.key, crop: :fill, class: "avatar-service" %>
       <% end %>
     <% end %>
 
@@ -59,20 +26,58 @@
         <% end %>
   </div>
 
+<% if @service.photos.count == 0 %>
+  <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598870874/b39976389dafbe5bde3603f2d21bd4a9_ypm9ks.jpg', height: 300, width: 400, crop: :fill, class: 'd-block rounded mx-auto') %>
+<% end %>
+
+<% unless @service.photos.count == 0 %>
+  <div class="image-carrousel container mb-2">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <% if @service.photos.count == 1  %>
+              <%= cl_image_tag @service.photos.first.key, height: 300, width: 400, crop: :fill, class: 'd-block rounded'%>
+          <% else %>
+            <div class="carousel-item active">
+              <%= cl_image_tag @service.photos.first.key, height: 300, width: 400, crop: :fill, class: 'd-block rounded'%>
+            </div>
+            <% @service.photos[1..].each do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: 'd-block rounded'%>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <% unless @service.photos.count == 1  %>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        <% end %>
+    </div>
+  </div>
+<% end %>
 
 
 
-  <p class="mt-4"><%= @service.description %></p>
 
-  <% unless @service.start_at.nil? %>
-    <h5>When?</h5>
+
+
+  <div class="speech-bubble"><%= @service.description %>
+    <% unless @service.start_at.nil? %>
+  <div class="mt-2">
 
     <% if @service.start_at == @service.end_at %>
-      <p class="mb-5"><strong><%= @service.start_at %></strong> </p>
+      <div style="font-size:0.85em; opacity: 0.6;"><i class="far fa-calendar-alt"></i> <strong><%= @service.start_at %></strong> </div>
     <% else %>
-      <p class="mb-5">From <strong><%= @service.start_at %></strong> to <strong><%= @service.end_at %></strong></p>
+      <div style="font-size:0.85em; opacity: 0.6;"><i class="far fa-calendar-alt"></i> From <strong><%= @service.start_at %></strong> to <strong><%= @service.end_at %></strong></div>
     <% end %>
   <% end %>
+  </div>
+  </div>
 
 
 
@@ -92,18 +97,18 @@
         <% end %>
         <div class="card-service-title">
           <%= link_to  profile_path(comment.user), class: "link-without-style" do %>
-            <p class="ml-2 mt-1"> <%=comment.user.first_name%> <%=comment.user.last_name[0]%>.</p>
+            <p class="ml-2 mt-0"> <%=comment.user.first_name%> <%=comment.user.last_name[0]%>.</p>
           <% end %>
         </div>
       </div>
 
       <div class="card-comment-text">
-        <div class="card-service-text">
+        <div class="card-service-text position-date">
             <%=comment.created_at.localtime.strftime("%a %b %e at %l:%M%p")  %>
         </div>
-        <span class="mb-0">
-          <%= comment.content %>
-        </span>
+          <span class="mb-1">
+            <%= comment.content %>
+          </span>
         <%if current_user == comment.user %>
           <%= link_to service_comment_path(@service, comment), class: "link-without-style", method: :delete, data: {confirm: "Delete this comment ?"} do %>
             <i class="far fa-trash-alt"></i>
@@ -117,7 +122,7 @@
 
 
   <% else %>
-    <h5>Be the first</h5> to comment this <%= @service.user.pseudo %>'s post !
+    <div class="text-center"><h5>Be the first</h5> to comment this <%= @service.user.pseudo %>'s post !</div>
   <%end  %>
 
 

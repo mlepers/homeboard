@@ -7,12 +7,13 @@ class InfoSyndicsController < ApplicationController
 
   def create
     @info_syndic = InfoSyndic.new(info_syndic_params)
-    @info_syndic.residence = current_user.residence
-    if @info_syndic.save
-      redirect_to residence_path(@info_syndic.residence)
-    else
-      render :new
+    @residence = current_user.residence
+    @info_syndic.residence = @residence
+    @residence.users.each do |user|
+      @info_syndic.user = user
+      @info_syndic.save
     end
+    redirect_to residence_path(@info_syndic.residence)
     authorize @info_syndic
   end
 
@@ -27,6 +28,6 @@ class InfoSyndicsController < ApplicationController
   private
 
   def info_syndic_params
-    params.require(:info_syndic).permit(:title, :content, :category, :seen, :residence)
+    params.require(:info_syndic).permit(:title, :content, :category, :seen, :residence, :user)
   end
 end

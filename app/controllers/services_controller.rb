@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
 
   def index
-    @alert = current_user.residence.info_syndics.where(category: "alert", seen: false).last
+    @alert = current_user.info_syndics.where(category: "alert", seen: false).last
     if params[:query].present?
       @services = policy_scope(Service.search_by_title_and_description(params[:query]))
     else
