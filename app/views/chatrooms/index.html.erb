@@ -23,6 +23,9 @@
               <div class="card-chatroom-last-message">
                 <%= chatroom.messages.first.content %>
               </div>
+              <% if chatroom.nb_of_unseen_messages > 0 %>
+                  <span class="avatar-red"> <%= chatroom.nb_of_unseen_messages%> </span>
+                <% end %>
               <div class="card-chatroom-date">
                 <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
               </div>
@@ -34,5 +37,4 @@
   <% end %>
   <div class="mb-5 mt-5 button text-center"><%= link_to "Start new conversation", new_chatroom_path, class: "without-decoration button-green"  %></div>
 </div>
-
 
