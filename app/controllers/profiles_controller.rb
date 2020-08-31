@@ -3,7 +3,11 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
     
     def index
-      @users = policy_scope(User).where(residence_id: current_user.residence_id)
+      if params[:query].present?
+        @users = policy_scope(User.search_by_first_name_last_name_and_pseudo(params[:query])).where(residence_id: current_user.residence_id)
+      else
+        @users = policy_scope(User).order(last_name: :desc).where(residence_id: current_user.residence_id)
+      end
     end
 
     def show
