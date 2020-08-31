@@ -3,6 +3,17 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.avatar-service {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: solid 5px #f7f7f7;
+  position:relative;
+  margin-bottom: -30px;
+  z-index: 1;
+}
+
 .avatar-large {
   width: 56px;
   border-radius: 50%;

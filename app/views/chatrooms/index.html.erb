@@ -1,6 +1,6 @@
 <div class="container my-4">
 
-<h1 class="text-center mb-4">My messages</h1>
+<h1 class="text-center mb-4 hide-1080px">My messages</h1>
   <% @chatrooms.each do |chatroom| %>
     <% if chatroom.guest == current_user %>
       <% other = chatroom.host %>

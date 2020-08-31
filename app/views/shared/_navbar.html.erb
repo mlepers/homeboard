@@ -28,20 +28,30 @@
               <%= link_to new_service_path, class:"without-decoration" do %>
                 <div class="addbutton-navbar">
                   <i class="fas fa-plus-circle mr-1"></i>
-                  Add post
+                  Add service
                 </div>
               <% end %>
             </div>
           </li>
         </ul>
-        <div class="searchflex">
-          <div><%= form_tag services_path, method: :get do %>
-            <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Find a service"
-            %></div>
-            <div><%= submit_tag "🔎", class: "btn" %></div>
+        <% if params[:controller] == "profiles" && params[:action] == "index" %>
+          <div class="searchflex">
+            <%= form_tag profiles_path, method: :get, class: "form-inline" do %>
+                <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a neighbour" %>
+                <%= button_tag :submit, class: "btn search" do %>
+                  <i class="fas fa-search"></i>
+                <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="searchflex">
+            <%= form_tag services_path, method: :get, class: "form-inline" do %>
+                <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a service" %>
+                <%= button_tag :submit, class: "btn search" do %>
+                  <i class="fas fa-search" style="color: white;"></i>
+                <% end %>
+            <% end %>
+          </div>
         <% end %>
         </div>
         <div class="nav-item dropdown ml-3">

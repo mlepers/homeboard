@@ -9,6 +9,13 @@ class User < ApplicationRecord
   belongs_to :residence
   has_one_attached :photo
 
+  include PgSearch::Model
+  pg_search_scope :search_by_first_name_last_name_and_pseudo,
+    against: [ :first_name, :last_name, :pseudo ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def name
     first_name + " " + last_name
   end

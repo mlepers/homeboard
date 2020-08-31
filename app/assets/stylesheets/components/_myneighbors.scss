@@ -1,6 +1,6 @@
 .wrapper-neighbors {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   grid-gap: 15px;
 }
 
@@ -22,6 +22,10 @@
   line-height: 1;
   font-style: italic;
   font-size: 0.9em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .neighbors-avatar {
@@ -34,13 +38,13 @@
 
 @media(max-width: 1080px) {
   .wrapper-neighbors {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 25% 25% 25% 25%;
   }
 }
 
 @media(max-width: 780px) {
   .wrapper-neighbors {
-    grid-template-columns: 1fr;
+    grid-template-columns: 50% 50%;
   }
 }
 
@@ -52,4 +56,29 @@
 .neighbors-link:hover {
   color: $black-homeboard;
   text-decoration: none !important;
+}
+
+
+blockquote {
+  display: block;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #eee;
+  padding: 1.5em 0 0.5em;
+  margin: 2em 0;
+  position: relative;
+  font-style: italic;
+}
+blockquote:before {
+  content: '\201C';
+  position: absolute;
+  top: 0em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f7f7f7;
+  width: 3rem;
+  height: 2rem;
+  font: 6em/1.08em 'PT Sans', sans-serif;
+  color: $green-homeboard;
+  text-align: center;
 }

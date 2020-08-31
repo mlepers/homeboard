@@ -2,13 +2,25 @@
   <% unless (params[:controller] == "chatrooms" && params[:action] == "show") %>
     <div class="mobile-top-toolbar">
       <h4 class="mb-4 mr-4">H</h4>
-      <div class="searchflex">
-          <div class="ml-3"><%= form_tag services_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a service"%>
-          </div>
-          <div><%= submit_tag "🔎", class: "btn" %></div>
-        <% end %>
-      </div>
+      <% if params[:controller] == "profiles" && params[:action] == "index" %>
+        <div class="searchflex">
+          <%= form_tag profiles_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a neighbour" %>
+                <%= button_tag :submit, class: "btn search" do %>
+                  <i class="fas fa-search" style="color: white;"></i>
+                <% end %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="searchflex">
+          <%= form_tag services_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a service" %>
+                <%= button_tag :submit, class: "btn search" do %>
+                  <i class="fas fa-search" style="color: white;"></i>
+                <% end %>
+          <% end %>
+        </div>
+      <% end %>
       <div class="nav-item dropdown ml-4">
         <% if (current_user.nil? || current_user.photo.attachment.nil?) %> 
           <%= image_tag('Avatar_default.jpeg', class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } ) %>

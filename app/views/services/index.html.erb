@@ -1,5 +1,5 @@
 <div class="container mt-4">
-<h1 class="text-center ">Services</h1>
+<h1 class="text-center hide-1080px">Services</h1>
 <div class="d-flex justify-content-center">
 
   <%= link_to "Enjoy it !", services_path(category: params[:category] == "offer" ? "" : "offer"),
@@ -33,7 +33,7 @@
                 <%= service.title %>
               </div>
               <div class="card-service-body">
-                by <%= service.user.pseudo %> - <%= service.created_at.strftime("%F") %>
+                by <%= service.user.pseudo %> - <%= service.created_at.strftime("%d-%m-%Y") %>
               </div>
             </div>
           </div>
