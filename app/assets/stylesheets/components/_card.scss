@@ -58,9 +58,13 @@
 }
 
 .card-service-text {
-  color: $grey-homeboard;
+  color: grey;
   font-size: 0.8rem;
   position: relative;
+}
+
+.position-date{
+  bottom: 30px; left: 40px;
 }
 
 // All comments card stuff
