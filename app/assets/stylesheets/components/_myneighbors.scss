@@ -1,6 +1,6 @@
 .wrapper-neighbors {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   grid-gap: 15px;
 }
 
@@ -22,6 +22,10 @@
   line-height: 1;
   font-style: italic;
   font-size: 0.9em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .neighbors-avatar {
@@ -34,13 +38,13 @@
 
 @media(max-width: 1080px) {
   .wrapper-neighbors {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 25% 25% 25% 25%;
   }
 }
 
 @media(max-width: 780px) {
   .wrapper-neighbors {
-    grid-template-columns: 1fr;
+    grid-template-columns: 50% 50%;
   }
 }
 
