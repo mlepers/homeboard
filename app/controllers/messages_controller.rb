@@ -18,10 +18,12 @@ class MessagesController < ApplicationController
         @chatroom,
         render_to_string(partial: "messages/broadcasted_message", locals: {message: @message})
       )
-      NotificationChannel.broadcast_to(
-        "notification", 
-        {notif_id: "notification-#{@chatroom.id}", receiver: @other}
-      )
+      if @other == current_user
+        NotificationChannel.broadcast_to(
+          "notification", 
+          {notif_id: "notification-#{@chatroom.id}", receiver: @other}
+        )
+      end
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
     else
       render "chatrooms/show"
