@@ -12,7 +12,10 @@
         <div class="alert-green">
       <% end %>
         <strong><%= info.title %></strong>
-        <div><%= info.content %></div>
+        <div class="alert-body">
+          <div><%= info.content %></div>
+          <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+        </div>
       </div>
     <% end %>
   <% end %>

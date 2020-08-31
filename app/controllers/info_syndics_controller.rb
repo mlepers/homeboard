@@ -6,10 +6,11 @@ class InfoSyndicsController < ApplicationController
   end
 
   def create
-    @info_syndic = InfoSyndic.new(info_syndic_params)
     @residence = current_user.residence
-    @info_syndic.residence = @residence
+    binding.pry
     @residence.users.each do |user|
+      @info_syndic = InfoSyndic.new(info_syndic_params)
+      @info_syndic.residence = @residence
       @info_syndic.user = user
       @info_syndic.save
     end
