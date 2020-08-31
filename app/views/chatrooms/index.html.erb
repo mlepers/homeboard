@@ -2,11 +2,11 @@
 
 <h1 class="text-center mb-4 hide-1080px">My messages</h1>
   <% @chatrooms.each do |chatroom| %>
-  <% if chatroom.guest == current_user %>
-    <% other = chatroom.host %>
-  <% else %>
-    <% other = chatroom.guest %>
-  <% end %>
+    <% if chatroom.guest == current_user %>
+      <% other = chatroom.host %>
+    <% else %>
+      <% other = chatroom.guest %>
+    <% end %>
     <%= link_to chatroom_path(chatroom), class:'without-decoration' do %>
       <div class="card-chatroom">
         <% if other.photo.attachment.nil? %>
@@ -18,21 +18,30 @@
           <div class="card-chatroom-title">
             <%= other.pseudo %>
           </div>
-          <% unless chatroom.messages.empty? %>
-            <div class="card-chatroom-body">
-              <div class="card-chatroom-last-message">
-                <%= chatroom.messages.first.content %>
+
+          <div id="chatroom-<%=chatroom.id%>">
+            <% unless chatroom.messages.empty? %>
+              <div class="card-chatroom-body">
+                <div class="card-chatroom-last-message">
+                  <%= chatroom.messages.first.content %>
+                </div>
+                
+                  <% if chatroom.nb_of_unseen_messages(current_user) > 0 %>
+                      <div class="text-danger" id="notification-<%=chatroom.id%>"> <%= chatroom.nb_of_unseen_messages(current_user)%> </div>
+                  <% end %>
+              
+                <div class="card-chatroom-date">
+                  <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
+                </div>
               </div>
-              <div class="card-chatroom-date">
-                <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
+
+
         </div>
       </div>
     <% end %>
   <% end %>
   <div class="mb-5 mt-5 button text-center"><%= link_to "Start new conversation", new_chatroom_path, class: "without-decoration button-green"  %></div>
 </div>
-
 
