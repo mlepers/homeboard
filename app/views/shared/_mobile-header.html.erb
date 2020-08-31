@@ -1,43 +1,31 @@
 <% unless params[:controller].include? "devise" %>
   <% unless (params[:controller] == "chatrooms" && params[:action] == "show") %>
-    <div class="mobile-header-container text-center">
-      <h4 class="mb-4">Homeboard</h4>
-
-      <div class="mobile-top-toolbar d-flex justify-content-center">
-
-        <div>
-          <div class="nav-item dropdown">
-              <% if (current_user.nil? || current_user.photo.attachment.nil?) %> 
-                <%= image_tag('Avatar_default.jpeg', class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } ) %>
-              <% else %> 
-                <%= cl_image_tag current_user.photo.key, class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
-              <% end %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <% unless current_user.nil? %>
-                <%= link_to "My profile",  profile_path(current_user), class: "dropdown-item"%>
-                <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
-              <% end %>
-              <% if current_user.nil? %>
-                <%= link_to "Log in", new_user_session_path, class: "dropdown-item"%>
-                <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item"%>
-              <% end %>
-            </div>
+    <div class="mobile-top-toolbar">
+      <h4 class="mb-4 mr-4">H</h4>
+      <div class="searchflex">
+          <div class="ml-3"><%= form_tag services_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a service"%>
           </div>
-        </div>
-
-        <div class="searchflex">
-            <div class="ml-3"><%= form_tag services_path, method: :get do %>
-              <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Find a service"
-              %></div>
-              <div><%= submit_tag "🔎", class: "btn" %></div>
+          <div><%= submit_tag "🔎", class: "btn" %></div>
+        <% end %>
+      </div>
+      <div class="nav-item dropdown ml-4">
+        <% if (current_user.nil? || current_user.photo.attachment.nil?) %> 
+          <%= image_tag('Avatar_default.jpeg', class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } ) %>
+        <% else %> 
+          <%= cl_image_tag current_user.photo.key, class: 'avatar dropdown-toggle', id: 'navbarDropdown', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } %>
+        <% end %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% unless current_user.nil? %>
+            <%= link_to "My profile",  profile_path(current_user), class: "dropdown-item"%>
+            <%= link_to "log out", destroy_user_session_path, class: "dropdown-item", method: :delete %>
+          <% end %>
+          <% if current_user.nil? %>
+            <%= link_to "Log in", new_user_session_path, class: "dropdown-item"%>
+            <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item"%>
           <% end %>
         </div>
-
-        </div>
-
+      </div>
     </div>
   <% end %>
 <% end %>
