@@ -15,6 +15,7 @@ class ChatroomsController < ApplicationController
       @other = @chatroom.guest
     end
     authorize @chatroom
+    unread_message
   end
 
   def new

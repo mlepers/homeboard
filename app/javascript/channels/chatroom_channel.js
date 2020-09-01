@@ -34,7 +34,6 @@ const controlLastMessageAvatar = () => {
 
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
-  console.log(messagesContainer)
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {

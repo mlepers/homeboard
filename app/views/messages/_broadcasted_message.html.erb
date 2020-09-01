@@ -5,10 +5,7 @@
     <%= cl_image_tag @other.photo.key, class: 'message-avatar' %>
   <% end %>
   <div class="message-container-other" id="message-<%= message.id %>" data-id = "<%= message.id %>">
-  <i class="author">
-    <span><%= message.user.pseudo %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <div><%= message.content %></div>
-</div>
+    <div class="message-content" data-user="<%= message.user.pseudo %>"><%= message.content %></div>
+    <small class="message-date"><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+  </div>
 </div>
