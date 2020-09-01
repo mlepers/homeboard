@@ -6,7 +6,7 @@
       <% end %>
       <strong><%= @alert.title %></strong>
       <div class="alert-cross">
-        <%= link_to info_syndic_path(@alert), method: :patch do  %> 
+        <%= link_to info_syndic_path(@alert), method: :patch, remote: true do  %> 
           <i class="fas fa-times alert-link"></i>
         <% end %>
       </div>

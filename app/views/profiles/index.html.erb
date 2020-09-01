@@ -8,7 +8,7 @@
             <% if user.photo.attachment.nil? %>
               <%= image_tag('Avatar_default.jpeg', crop: :fill, class: "neighbors-avatar") %>
           <% else %>
-              <%= cl_image_tag user.photo.key, height: 150, width: 200, crop: :fill, class: "neighbors-avatar"%>
+              <%= cl_image_tag user.photo.key, height: 200, width: 200, crop: :fill, class: "neighbors-avatar"%>
           <% end %><br>
           <div style="margin-bottom: 5px; font-weight:bold;"><%= user.first_name %> <%= user.last_name %></div>
 
