@@ -28,11 +28,13 @@ class ApplicationController < ActionController::Base
   def live_message
     if request.referer
       if request.referer.split('/').include? "chatrooms"
-        if request.referer.split('/').last != "chatrooms"
+        unless request.referer.split('/').last == "chatrooms"
           chatroom_number = request.referer.split('/').last.to_i
           last_message = Chatroom.find(chatroom_number).messages.last
-          last_message.seen!
-          last_message.save
+          unless last_message.user_id == current_user.id
+            last_message.seen!
+            last_message.save
+          end
         end
       end
     end
