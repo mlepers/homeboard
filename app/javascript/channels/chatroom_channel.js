@@ -34,16 +34,20 @@ const controlLastMessageAvatar = () => {
 
 const initChatroomCable = () => {
   const messagesContainer = document.getElementById('messages');
+  console.log(messagesContainer)
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
-        const guestName = document.querySelector('#chat-title').innerText;
-        if (data.includes(guestName)) {
-          messagesContainer.insertAdjacentHTML('beforeend', data);
-          scrollLastMessage();
-          controlLastMessageAvatar();
-        };
+        const guestName = document.querySelector('#chat-title');
+        if (guestName) {
+          const innerGuestName = guestName.innerText;
+          if (data.includes(innerGuestName)) {
+            messagesContainer.insertAdjacentHTML('beforeend', data);
+            scrollLastMessage();
+            controlLastMessageAvatar();
+          };
+        }
       },
     });
   }

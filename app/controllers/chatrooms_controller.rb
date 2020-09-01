@@ -7,7 +7,7 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find(params[:id])
     @chatroom.mark_all_messages_recieved_as_seen(current_user)
-    @messages = @chatroom.messages
+    @messages = @chatroom.messages.sort_by &:created_at
     @message = Message.new
     if current_user == @chatroom.guest 
       @other = @chatroom.host

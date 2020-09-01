@@ -103,11 +103,10 @@
 
 .card-chatroom {
   display: flex;
-  background-color: $white-homeboard;
+  border-radius: 10px;
   align-items: center;
   position: relative;
-  padding: 0 0.5rem 0 0;
-  margin-bottom: 15px;
+  padding: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .card-chatroom-avatar {
@@ -121,7 +120,6 @@
 .card-chatroom-text {
   display: flex;
   flex-direction: column;
-  margin: 0.5em 0;
   box-sizing: border-box;
   width: calc(100% - 5rem);
 }
@@ -134,7 +132,8 @@
 }
 
 .card-chatroom-body {
-  color: $grey-homeboard;
+  color: $black-homeboard;
+  opacity: 0.6;
   font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
@@ -155,7 +154,7 @@
 }
 
 .card-chatroom:hover {
-  opacity: 0.8;
+  background-color: rgba(0, 150, 136, 0.3);
 }
 
 .card-description-service {

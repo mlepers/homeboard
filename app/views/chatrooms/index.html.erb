@@ -1,47 +1,48 @@
 <div class="container my-4">
-
-<h1 class="text-center mb-4 hide-1080px">My messages</h1>
-  <% @chatrooms.each do |chatroom| %>
-    <% if chatroom.guest == current_user %>
-      <% other = chatroom.host %>
-    <% else %>
-      <% other = chatroom.guest %>
-    <% end %>
-    <%= link_to chatroom_path(chatroom), class:'without-decoration' do %>
-      <div class="card-chatroom">
-        <% if other.photo.attachment.nil? %>
-            <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-chatroom-avatar") %>
-        <% else %>
-            <%= cl_image_tag other.photo.key, height: 150, width: 200, crop: :fill, class: "card-chatroom-avatar"%>
-        <% end %>
-        <div class="card-chatroom-text">
-          <div class="card-chatroom-title">
-            <%= other.pseudo %>
-          </div>
-
-          <div id="chatroom-<%=chatroom.id%>">
-            <% unless chatroom.messages.empty? %>
-              <div class="card-chatroom-body">
-                <div class="card-chatroom-last-message">
-                  <%= chatroom.messages.first.content %>
-                </div>
-                
-                  <% if chatroom.nb_of_unseen_messages(current_user) > 0 %>
-                      <div class="text-danger" id="notification-<%=chatroom.id%>"> <%= chatroom.nb_of_unseen_messages(current_user)%> </div>
-                  <% end %>
-              
-                <div class="card-chatroom-date">
-                  <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+      <div class="white-container">
+        <h1 class="text-center mb-4 hide-1080px">My messages</h1>
+          <% @chatrooms.each do |chatroom| %>
+            <% if chatroom.guest == current_user %>
+              <% other = chatroom.host %>
+            <% else %>
+              <% other = chatroom.guest %>
+            <% end %>
+            <%= link_to chatroom_path(chatroom), class:'without-decoration' do %>
+              <div class="card-chatroom">
+                <% if other.photo.attachment.nil? %>
+                    <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "card-chatroom-avatar") %>
+                <% else %>
+                    <%= cl_image_tag other.photo.key, height: 150, width: 200, crop: :fill, class: "card-chatroom-avatar"%>
+                <% end %>
+                <div class="card-chatroom-text">
+                  <div class="card-chatroom-title">
+                    <%= other.pseudo %>
+                  </div>
+                  <div id="chatroom-<%=chatroom.id%>">
+                    <% unless chatroom.messages.empty? %>
+                      <% if chatroom.nb_of_unseen_messages(current_user) > 0 %>
+                        <div class="notification" id="notification-<%=chatroom.id%>"> <%= chatroom.nb_of_unseen_messages(current_user)%> </div>
+                      <% end %>
+                      <div class="card-chatroom-body">
+                        <div class="card-chatroom-last-message">
+                          <%= chatroom.messages.first.content %>
+                        </div>
+                        <div class="card-chatroom-date">
+                          <%= chatroom.messages.first.created_at.strftime("%a %b %e") %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             <% end %>
-          </div>
-
-
+          <% end %>
         </div>
       </div>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
   <div class="mb-5 mt-5 button text-center"><%= link_to "Start new conversation", new_chatroom_path, class: "without-decoration button-green"  %></div>
 </div>
 
