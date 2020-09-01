@@ -8,6 +8,7 @@
   padding: 5px 12px 5px 12px;
   text-decoration: none !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
   &:hover {
     color:white;
     background-color: rgb(224, 75, 75);
@@ -61,6 +62,7 @@
   padding: 5px 12px 5px 12px;
   text-decoration: none !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
   &:hover {
     color:white;
     background-color: #4b4949;
@@ -78,6 +80,8 @@
   padding: 5px 12px 5px 12px;
   text-decoration: none !important;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
+  text-align: center;
   &:hover {
     color: white;
     background-color: $red-homeboard;
@@ -130,6 +134,8 @@
   padding: 5px 12px 5px 12px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   text-decoration: none !important;
+  width: 110px;
+  text-align: center;
   &:hover {
     color: white;
     background-color: $black-homeboard;
