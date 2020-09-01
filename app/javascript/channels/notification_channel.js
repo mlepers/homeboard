@@ -10,8 +10,7 @@ const initNotificationCable = () => {
           if (notificationsContainer == null) {
             const noNotif = document.querySelector(`#chatroom-${data.chatroom}`);
             const NotificationBadgeFirst = `<div class="notification" id="notification-${data.chatroom}">1</div>`;
-            noNotif.insertAdjacentHTML('afterend', NotificationBadgeFirst);  
-            noNotif.remove()
+            noNotif.insertAdjacentHTML('afterbegin', NotificationBadgeFirst);  
           } else {
             const numberOfNotifications = parseInt(notificationsContainer.innerText);
             const newNotificationBadge = `<div class="notification" id="notification-${data.chatroom}">${numberOfNotifications +1}</div>`;
