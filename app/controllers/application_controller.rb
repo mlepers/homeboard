@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :unread_message
+  after_action :live_message
 
   include Pundit
 
@@ -22,6 +23,19 @@ class ApplicationController < ActionController::Base
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:pseudo, :email, :first_name, :last_name, :description, :residence_id])
+  end
+
+  def live_message
+    if request.referer
+      if request.referer.split('/').include? "chatrooms"
+        if request.referer.split('/').last != "chatrooms"
+          chatroom_number = request.referer.split('/').last.to_i
+          last_message = Chatroom.find(chatroom_number).messages.last
+          last_message.seen!
+          last_message.save
+        end
+      end
+    end
   end
 
   def unread_message
