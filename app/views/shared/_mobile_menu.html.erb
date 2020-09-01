@@ -7,10 +7,13 @@
       <% end %>
     </div>
 
-    <div class="text-center without-decoration-white <%='active' if current_page?(chatrooms_path) %>">
+    <div class="position-relative text-center without-decoration-white <%='active' if current_page?(chatrooms_path) %>" id ="messages-on-mobile-menu-<%=current_user.id%>">
       <%= link_to(chatrooms_path) do %>
         <i class="fas fa-comments"></i><br> Messages
       <% end %>
+      <% if @unread_message %>
+        <div class="small-notification" ></div>
+      <%end  %>
     </div>
 
     <div class="text-center without-decoration-white <%='active' if current_page?(new_service_path) %>">

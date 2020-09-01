@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :unread_message
 
   include Pundit
 
@@ -23,6 +24,30 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:pseudo, :email, :first_name, :last_name, :description, :residence_id])
   end
 
+  def unread_message
+    x = 0
+    y = 0
+    @unread_message = false
+
+    if Chatroom.where(guest_id: current_user.id).count > 0
+      Chatroom.where(guest_id: current_user.id).each do |chatroom|
+        x += chatroom.nb_of_unseen_messages(current_user)
+      end
+    end
+
+    if Chatroom.where(host_id: current_user.id).count > 0
+      Chatroom.where(host_id: current_user.id).each do |chatroom|
+        y += chatroom.nb_of_unseen_messages(current_user)
+      end
+    end
+
+    if x + y > 0
+      @unread_message = true
+    end
+
+    return @unread_message
+    
+  end
 
   private
 
