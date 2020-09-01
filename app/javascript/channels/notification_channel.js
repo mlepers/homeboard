@@ -4,7 +4,7 @@ const initNotificationCable = () => {
  
      consumer.subscriptions.create({ channel: "NotificationChannel" }, {
       received(data) {
-        const chatroomCards = document.querySelectorAll('card-chatroom');
+        const chatroomCards = document.querySelector('.card-chatroom');
         if (chatroomCards) {
           const notificationsContainer = document.querySelector(`#notification-${data.chatroom}`);
           if (notificationsContainer == null) {
@@ -18,6 +18,30 @@ const initNotificationCable = () => {
             notificationsContainer.remove()
           }
         }
+
+        const menuMobile = document.querySelector(`#messages-on-mobile-menu-${data.receiver.id}`);
+        if (menuMobile) {
+          const messageNotification = document.querySelector(`.small-notification`);
+          if (messageNotification == null) {
+            menuMobile.insertAdjacentHTML('beforeend',`<div class="small-notification" ></div>`);
+          } else {
+            menuMobile.insertAdjacentHTML('beforeend',`<div class="small-notification" ></div>`);
+            messageNotification.remove();
+          }
+              
+        }
+
+        const menuDesktop = document.querySelector(`#messages-on-desktop-navbar-${data.receiver.id}`);
+        if (menuDesktop) {
+          const messageNotificationDesktop = document.querySelector(`.small-notification-for-desktop`);
+          if (messageNotificationDesktop == null) {
+            menuDesktop.insertAdjacentHTML('beforeend',`<div class="small-notification-for-desktop" ></div>` );
+          } else {
+            menuDesktop.insertAdjacentHTML('beforeend',`<div class="small-notification-for-desktop" ></div>` );
+            messageNotificationDesktop.remove();
+          }
+        }
+        
       },
     });
 }

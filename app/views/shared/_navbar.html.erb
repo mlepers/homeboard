@@ -12,8 +12,11 @@
           <li class="nav-item d-flex align-items-center <%='active' if current_page?(root_path) %>">
             <%= link_to "Services", root_path, class: "navlink" %>
           </li>
-          <li class="nav-item d-flex align-items-center <%='active' if current_page?(chatrooms_path) %>">
+          <li id = "messages-on-desktop-navbar-<%=current_user.id%>" class="nav-item d-flex align-items-center <%='active' if current_page?(chatrooms_path) %>">
             <%= link_to "Messages",  chatrooms_path, class: "navlink"%>
+            <% if @unread_message %>
+              <div class="small-notification-for-desktop" ></div>
+            <%end  %>
           </li>
           <% if current_user %>
             <li class="nav-item d-flex align-items-center <%='active' if current_page?(current_user.residence) %>">

@@ -10,8 +10,10 @@ class MessagesController < ApplicationController
     @message.user = current_user
     if current_user == @chatroom.guest 
       @other = @chatroom.guest
+      @receiver = @chatroom.host
     else
       @other = @chatroom.host
+      @receiver = @chatroom.guest
     end
     if @message.save!
       ChatroomChannel.broadcast_to(
@@ -21,7 +23,7 @@ class MessagesController < ApplicationController
       if @other == current_user
         NotificationChannel.broadcast_to(
           "notification", 
-          {chatroom: "#{@chatroom.id}", receiver: @other}
+          {chatroom: "#{@chatroom.id}", receiver: @receiver}
         )
       end
       redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
