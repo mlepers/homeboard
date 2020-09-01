@@ -30,6 +30,8 @@ import { scrollLastMessage } from "../channels/chatroom_channel";
 import { initNotificationCable } from "../channels/notification_channel";
 import { pressEnterSubmit } from "../plugins/enterbutton"
 import { changeArrow } from "../plugins/arrow"
+import { initSweetalertCreated } from '../plugins/initSweetAlertCreated';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
@@ -39,4 +41,11 @@ document.addEventListener('turbolinks:load', () => {
   pressEnterSubmit();
   initNotificationCable();
   changeArrow();
+  initSweetalertCreated('#sweet-alert-created', {
+    title: "Service Created",
+    text: "Well done, you created a new service for the community.",
+    icon: "success",
+    button: 'Ok',
+    confirmButtonColor: '#009688'
+  });
 });

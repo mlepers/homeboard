@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
 
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, :only => [:create]
 
   def index
     @alert = current_user.info_syndics.where(category: "alert", seen: false).last
