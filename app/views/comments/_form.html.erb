@@ -3,7 +3,9 @@
   <%= simple_form_for(comment, remote: true) do |f| %>
   <div class="container">
     <%= f.input :content, label:"Leave a comment" %>
-    <%= f.button :submit, "Send it !", class: "button-green mb-5" %>
+   <button type="submit" class="button-grey">
+    <i class="fas fa-paper-plane"></i> 
+    </button>
   </div>
   <% end %>
 </div>
