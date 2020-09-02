@@ -17,4 +17,11 @@ Rails.application.routes.draw do
   end
 
   resources :info_syndics, only: [ :new, :create, :update ]
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 end
