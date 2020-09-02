@@ -10,7 +10,7 @@ class Chatroom < ApplicationRecord
   def nb_of_unseen_messages(current_user)
     n = 0 
     self.messages.each do |message|
-      if message.seen == false && message.user_id != current_user.id
+      if message.seen == false && message.user != current_user
         n+=1
       end
     end
@@ -19,7 +19,7 @@ class Chatroom < ApplicationRecord
 
   def mark_all_messages_recieved_as_seen(current_user)
     self.messages.each do |message|
-      unless message.user_id == current_user.id
+      unless message.user == current_user
         message.seen!
         message.save
       end
