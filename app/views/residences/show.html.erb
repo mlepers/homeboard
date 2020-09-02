@@ -1,16 +1,18 @@
 <div class="container mt-4">
   <h1 class="text-center hide-1080px">My copro</h1>
-
-  <div>
-    Payment
-    <p>Amount: <%= humanized_money_with_symbol(@charge.price) %></p>
-  </div>
-  <div>
-    <%= form_tag orders_path do %>
+  <% if @condition %>
+   <div class="card-charges text-center">
+     <h5>Condominium fees</h5>
+     <p><strong>Period</strong> : From 1st june to 31th august.<br>Regulate before 31/09/2020<br>
+      <strong>Amount</strong> : <%= humanized_money_with_symbol(@charge.price) %></p>
+      <%= form_tag orders_path do %>
       <%= hidden_field_tag 'charge_id', @charge.id %>
-      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-<% end %>
-  </div>
+      <%= submit_tag 'Pay', class: 'button-green' %>
+      <% end %>
+   </div>
+  <% else %>
+    hhbyuuh
+  <% end %>
 
   <p class="text-center mt-4 mb-4 secondary-information">
     <%= @residence.name %> - <%= @residence.address  %>
