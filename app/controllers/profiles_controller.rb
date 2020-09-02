@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
     
     def index
-      @title = "Mes voisins"
+      @title = "My Neighbors"
       if params[:query].present?
         @users = policy_scope(User.search_by_first_name_last_name_and_pseudo(params[:query])).where(residence_id: current_user.residence_id)
       else
@@ -14,7 +14,12 @@ class ProfilesController < ApplicationController
     def show
       @user = User.find(params[:id])
 
-      @title = @user.first_name
+      if @user == current_user
+        @title = "My Profile"
+      else
+        @title = "#{@user.first_name} #{@user.last_name[0]}. "
+      end
+
       @chatroom_id = nil
           if Chatroom.where('guest_id = ? AND host_id = ?', current_user, @user).empty?
             @chatroom = Chatroom.where('guest_id = ? AND host_id = ?', @user, current_user)
@@ -32,6 +37,7 @@ class ProfilesController < ApplicationController
     
    
     def edit
+      @title = "Edit my profile"
     end
   
 

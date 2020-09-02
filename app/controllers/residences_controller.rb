@@ -5,6 +5,7 @@ class ResidencesController < ApplicationController
     def show
         @info_syndics = current_user.info_syndics.order("info_syndics.created_at DESC")
         authorize @residence
+        @title = "Copro"
     end
 
     private

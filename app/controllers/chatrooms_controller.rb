@@ -11,9 +11,11 @@ class ChatroomsController < ApplicationController
     @messages = @chatroom.messages.sort_by &:created_at
     @message = Message.new
     if current_user == @chatroom.guest 
+      @title = "Chat with #{@chatroom.host.first_name}"
       @other = @chatroom.host
     else
       @other = @chatroom.guest
+      @title = "Chat with #{@chatroom.guest.first_name}"
     end
     authorize @chatroom
     unread_message

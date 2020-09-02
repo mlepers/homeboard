@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
       @services = policy_scope(Service).order(created_at: :desc)
     end
     if params[:category].present?
+      @title = "#{params[:category]}"
       @services = @services.where(category: params[:category])
     end
   end
@@ -21,6 +22,7 @@ class ServicesController < ApplicationController
   end
 
   def new
+    @title = "Add a service"
     @service = Service.new
     authorize @service
   end
