@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :info_syndics
   belongs_to :residence
   has_one_attached :photo
+  has_many :charges
+  has_many :orders
 
   include PgSearch::Model
   pg_search_scope :search_by_first_name_last_name_and_pseudo,

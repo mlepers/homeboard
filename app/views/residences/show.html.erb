@@ -1,6 +1,17 @@
 <div class="container mt-4">
   <h1 class="text-center hide-1080px">My copro</h1>
 
+  <div>
+    Payment
+    <p>Amount: <%= humanized_money_with_symbol(@charge.price) %></p>
+  </div>
+  <div>
+    <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'charge_id', @charge.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+<% end %>
+  </div>
+
   <p class="text-center mt-4 mb-4 secondary-information">
     <%= @residence.name %> - <%= @residence.address  %>
   </p>
