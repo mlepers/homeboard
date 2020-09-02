@@ -26,11 +26,14 @@
     <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598537789/stephane-plaza-dyspraxie-isopix_kikbtf.jpg', crop:"fill", class: "img-copro") %>
     <p>
       <strong>Stéphane Plazza</strong><br>
-      <div class="button-green" style="display: inline-block;">Send an email</u></div><br>
+      <br>
+      <%= link_to "mailto:test@test.com"  do%>
+        <i class="fas fa-envelope"></i>
+      <%end  %>
     </p>
     <p>
       Stéphane Plaza immobilier Lille<br>
-      55 Boulevard de la Liberté, 59000 London<br>
+      55 Boulevard de la Liberté, 59000 London - 
       +33 (0)3 20 56 33 34
     </p>
       <hr class="pt-2 pb-1" style="width:60%;text-align:center;">
@@ -40,11 +43,13 @@
     <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598538790/download_emaje2.jpg', crop:"fill", class: "img-copro") %>
     <p>
       <strong>Jenny Labrosse</strong><br>
-      <div class="button-green" style="display: inline-block;">Send an email</u></div><br>
+      <%= link_to "mailto:test@test.com"  do%>
+        <i class="fas fa-envelope"></i>
+      <%end  %>
     </p>
     <p>
       President of owner council - <%= @residence.name %><br>
-      <%= @residence.address  %>
+      <%= @residence.address  %> - 
       +33 (0)3 20 51 22 43
     </p>
   </div>
