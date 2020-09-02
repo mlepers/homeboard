@@ -14,7 +14,18 @@
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
-    margin-top: 40px;
+    padding-right: 10px;
+    padding-left: 10px;
+  
+  }
+
+  .background-white {
+    background-color: white;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .rails-default-error-page div.dialog {
@@ -41,15 +52,16 @@
     color: #009688;
     line-height: 1.5em;
     font-family: "Pacifico", serif;
+    font-weight: lighter;
   }
   .rails-default-error-page h2 {
     color: #009688;
-    background-color: white;
     font-family: "Pacifico", serif;
     border-radius: 2%;
     text-align: center;
     display: initial;
     padding: 0.5rem;
+    font-weight: lighter;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -91,7 +103,10 @@
   <!-- This file lives in public/404.html -->
   
     <div>
-      <h2>HomeBoard</h2>
+      <div class="background-white">
+        <h2>HomeBoard</h2>
+      </div>
+      
       <h1>The page you were looking for doesn't exist.</h1>
       <p>You may have mistyped the address or the page may have moved.</p>
     </div>
