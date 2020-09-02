@@ -90,11 +90,10 @@ ActiveRecord::Schema.define(version: 2020_09_01_135613) do
 
   create_table "orders", force: :cascade do |t|
     t.string "state"
-    t.integer "amount_cents", default: 0, null: false
-    t.string "amount_currency", default: "EUR", null: false
     t.string "checkout_session_id"
     t.bigint "user_id", null: false
     t.bigint "charge_id", null: false
+    t.integer "amount_cents", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["charge_id"], name: "index_orders_on_charge_id"
