@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_133235) do
+ActiveRecord::Schema.define(version: 2020_09_01_135613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2020_08_31_133235) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "charges", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.index ["user_id"], name: "index_charges_on_user_id"
   end
 
   create_table "chatrooms", force: :cascade do |t|
@@ -78,6 +86,18 @@ ActiveRecord::Schema.define(version: 2020_08_31_133235) do
     t.boolean "seen", default: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "charge_id", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["charge_id"], name: "index_orders_on_charge_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|
@@ -127,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_133235) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "charges", "users"
   add_foreign_key "chatrooms", "users", column: "guest_id"
   add_foreign_key "chatrooms", "users", column: "host_id"
   add_foreign_key "comments", "services"
@@ -135,6 +156,8 @@ ActiveRecord::Schema.define(version: 2020_08_31_133235) do
   add_foreign_key "info_syndics", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "orders", "charges"
+  add_foreign_key "orders", "users"
   add_foreign_key "services", "users"
   add_foreign_key "users", "residences"
 end

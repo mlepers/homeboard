@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row py-4">
+    <div class="col">
+      <h2>Checkout - Condominium fees</h2>
+      <p>Period : From 1st june to 31th august.<br>
+      Regulate before 31/09/2020</p>
+      <p style="font-size:40px;"><strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <button id="pay" class="button-green">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</div>

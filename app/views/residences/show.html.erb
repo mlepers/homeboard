@@ -1,9 +1,27 @@
 <div class="container mt-4">
   <h1 class="text-center hide-1080px">My copro</h1>
 
-  <p class="text-center mt-4 mb-4 secondary-information">
+<p class="text-center mt-4 mb-4 secondary-information">
     <%= @residence.name %> - <%= @residence.address  %>
   </p>
+
+  <% if @condition %>
+   <div class="card-charges text-center">
+     <h5>Condominium fees</h5>
+     <p><strong>Period</strong> : From 1st june to 31th august.<br>Regulate before 31/09/2020<br>
+      <strong>Amount</strong> : <%= humanized_money_with_symbol(@charge.price) %></p>
+      <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'charge_id', @charge.id %>
+      <%= submit_tag 'Pay', class: 'button-green' %>
+      <% end %>
+   </div>
+  <% else %>
+    <div class="card-charges text-center">
+     <h5>Condominium fees</h5>
+     Nothing to pay... You are up-to-date !
+   </div>
+  <% end %>
+
   <div id="alerts">
     <% if @info_syndics.present? %>
       <% @info_syndics.each do |info| %>
@@ -38,7 +56,7 @@
     </p>
     <p>
       Stéphane Plaza immobilier Lille<br>
-      55 Boulevard de la Liberté, 59000 London - 
+      55 Boulevard de la Liberté, 59000 London -
       +33 (0)3 20 56 33 34
     </p>
       <hr class="pt-2 pb-1" style="width:60%;text-align:center;">
@@ -54,7 +72,7 @@
     </p>
     <p>
       President of owner council - <%= @residence.name %><br>
-      <%= @residence.address  %> - 
+      <%= @residence.address  %> -
       +33 (0)3 20 51 22 43
     </p>
   </div>

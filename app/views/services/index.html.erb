@@ -15,14 +15,24 @@
       </div>
     </div>
   <% end %>
-<h1 class="text-center hide-1080px">Services</h1>
+<%= link_to services_path, class: "link-without-style" do%>  
+  <h1 class="text-center hide-1080px">Services</h1>
+<%end  %>
 <div class="d-flex justify-content-center">
 
-  <%= link_to "Enjoy it !", services_path(category: params[:category] == "offer" ? "" : "offer"),
-                       class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'offer' ? 'button-red' : 'button-red-t'}" %>
+  <%= link_to services_path(category: params[:category] == "offer" ? "" : "offer"),
+                       class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'offer' ? 'offer-button' : 'offer-button-desactiv'}" do %>
+                   <i class="fas fa-smile-wink fa-3x"></i>
+                   <p>Enjoy it!</p>
+  <% end %>
 
-  <%= link_to "Help them !", services_path(category: params[:category] == "demand" ? "" : "demand"),
-                       class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'demand' ? 'button-dark-grey' : 'button-dark-grey-t'}" %>
+  <%= link_to services_path(category: params[:category] == "demand" ? "" : "demand"),
+                       class: "mt-2 mb-4 ml-4 mr-4 without-decoration #{params[:category] == 'demand' ? 'demand-button' : 'demand-button-desactiv'}" do %>
+                      <i class="fas fa-hands-helping fa-3x"></i>
+                      <p>Help them!</p>
+  <%end  %>
+
+
 </div>
   <div class="grid-services">
     <% @services.each do |service| %>

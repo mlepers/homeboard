@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  before_action :set_title
 
   def index
     @chatrooms = policy_scope(Chatroom).includes(:messages).order("messages.created_at DESC")
@@ -10,9 +11,11 @@ class ChatroomsController < ApplicationController
     @messages = @chatroom.messages.sort_by &:created_at
     @message = Message.new
     if current_user == @chatroom.guest 
+      @title = "Chat with #{@chatroom.host.first_name}"
       @other = @chatroom.host
     else
       @other = @chatroom.guest
+      @title = "Chat with #{@chatroom.guest.first_name}"
     end
     authorize @chatroom
     unread_message
@@ -60,4 +63,7 @@ class ChatroomsController < ApplicationController
     params.require(:chatroom).permit(:guest)
   end
 
+  def set_title
+    @title = "Message"
+  end
 end
