@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :live_message
   before_action :unread_message
-  after_action :live_message
 
   include Pundit
 
@@ -30,11 +30,7 @@ class ApplicationController < ActionController::Base
       if request.referer.split('/').include? "chatrooms"
         unless request.referer.split('/').last == "chatrooms"
           chatroom_number = request.referer.split('/').last.to_i
-          last_message = Chatroom.find(chatroom_number).messages.last
-          unless last_message.user_id == current_user.id
-            last_message.seen!
-            last_message.save
-          end
+          last_message = Chatroom.find(chatroom_number).mark_all_messages_recieved_as_seen(current_user)
         end
       end
     end
