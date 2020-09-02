@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  before_action :set_title
 
   def index
     @chatrooms = policy_scope(Chatroom).includes(:messages).order("messages.created_at DESC")
@@ -60,4 +61,7 @@ class ChatroomsController < ApplicationController
     params.require(:chatroom).permit(:guest)
   end
 
+  def set_title
+    @title = "Message"
+  end
 end
