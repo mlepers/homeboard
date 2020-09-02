@@ -17,6 +17,36 @@
   }
 }
 
+.offer-button {
+  color: $red-homeboard;
+  text-align: center;
+  padding: 5px 12px 5px 12px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
+  &:hover {
+    opacity: 0.5 !important;
+    color: $red-homeboard !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+
+.offer-button-desactiv {
+  color: $red-homeboard;
+  text-align: center;
+  padding: 5px 12px 5px 12px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
+  opacity: 0.33;
+  &:hover {
+    opacity: 0.6;
+    color: $red-homeboard !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+
+
 .button-grey {
   color: white;
   background-color: $grey-homeboard;
@@ -30,6 +60,34 @@
     color: white;
     background-color: rgb(224, 223, 223);
     border-color: solid rgb(179, 177, 177);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+
+.demand-button-desactiv {
+  color: $black-homeboard;
+  text-align: center;
+  padding: 5px 12px 5px 12px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
+  opacity: 0.33;
+  &:hover {
+    opacity: 0.6 !important;
+    color: $black-homeboard !important;;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+
+.demand-button {
+  color: $black-homeboard;
+  text-align: center;
+  padding: 5px 12px 5px 12px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 110px;
+  &:hover {
+    opacity: 0.5;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 }
