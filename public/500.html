@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="favicon.ico">
+  
   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;600;700;800&family=Pacifico&display=swap');
+  @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
   .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
-    margin: 0;
+    margin-top: 40px;
+  }
+
+  .rails-default-error-page p {
+    margin-bottom: 40px;
   }
 
   .rails-default-error-page div.dialog {
@@ -32,9 +41,19 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 2rem;
+    color: #009688;
     line-height: 1.5em;
+    font-family: "Pacifico", serif;
+  }
+  .rails-default-error-page h2 {
+    color: #009688;
+    background-color: white;
+    font-family: "Pacifico", serif;
+    border-radius: 2%;
+    text-align: center;
+    display: initial;
+    padding: 0.5rem;
   }
 
   .rails-default-error-page div.dialog > p {
@@ -51,16 +70,40 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  .button-green {
+  background-color: #009688;
+  color: white;
+  border-color: #015a51;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  text-align: center;
+  padding: 5px 12px 5px 12px;
+  text-decoration: none !important;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &:hover {
+    color:white;
+    background-color: #03a090;
+    border-color: solid #015a51;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
-  <div class="dialog">
+  <div >
     <div>
+      <h2>HomeBoard</h2>
       <h1>We're sorry, but something went wrong.</h1>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <p>We can't find the page you are looking for...</p>
+  
+      <a class="button-green" href="https://home-board.herokuapp.com/">Back to home page</a>
+      <h1><i class="fas fa-building"></i></h1>
+   
+    
   </div>
 </body>
 </html>

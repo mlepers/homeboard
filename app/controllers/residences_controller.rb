@@ -6,6 +6,7 @@ class ResidencesController < ApplicationController
         @info_syndics = current_user.info_syndics.order("info_syndics.created_at DESC")
         @charge = Charge.find(current_user.charges.first.id)
         authorize @residence
+        @title = "Copro"
     end
 
     private
