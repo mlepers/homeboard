@@ -17,6 +17,9 @@
             <div><%= info.content %></div>
             <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
           </div>
+          <% if info.file.attachment.present? %>
+            <%= link_to "test", "#{<%= cl_image_tag(info.file.key, :flag=>'attachment') %>}" %>
+          <% end %>
         </div>
       <% end %>
     <% end %>
