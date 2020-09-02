@@ -13,13 +13,15 @@
           <div class="alert-green">
         <% end %>
           <strong><%= info.title %></strong>
+          <div><%= info.content %></div>
           <div class="alert-body">
-            <div><%= info.content %></div>
+            <% if info.file.attachment.present? %>
+              <a class="button-alerts" href="<%= Cloudinary::Utils.download_zip_url({public_ids: [info.file.key]}) %>">Download</a>
+            <% else %>
+              <div></div>
+            <% end %>
             <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
           </div>
-          <% if info.file.attachment.present? %>
-            <%= link_to "test", "#{<%= cl_image_tag(info.file.key, :flag=>'attachment') %>}" %>
-          <% end %>
         </div>
       <% end %>
     <% end %>
