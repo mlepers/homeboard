@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row py-4">
     <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <h2>Checkout - Condominium fees</h2>
+      <p>Period : From 1st june to 31th august.<br>
+      Regulate before 31/09/2020</p>
+      <p style="font-size:40px;"><strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <button id="pay" class="button-green">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');

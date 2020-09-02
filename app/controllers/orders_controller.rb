@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   session = Stripe::Checkout::Session.create(
     payment_method_types: ['card'],
     line_items: [{
-      name: "Charges for #{current_user}",
+      name: "Condominium fees / #{current_user.first_name}",
       amount: charge.price_cents,
       currency: 'eur',
       quantity: 1
@@ -28,3 +28,4 @@ class OrdersController < ApplicationController
   end
 
 end
+
