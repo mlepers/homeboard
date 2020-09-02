@@ -17,7 +17,7 @@
   background-color: #F3DBDB;
   border-radius: 5px;
   padding: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: $red-homeboard;
   position: relative;
   animation-name: hide;
@@ -65,19 +65,20 @@
   display: none;
 }
 
-@keyframes hide {
+
+/**@keyframes hide {
   0% {
     opacity: 1;
     height: 100%;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     line-height: 100%;
   }
   75% {
     opacity: 0;
     height: 100%;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     line-height: 100%;
   }
   100% {
@@ -87,4 +88,4 @@
     padding: 0;
     margin-bottom: 0;
   }
-}
+}**/

@@ -12,10 +12,11 @@
   position: relative;
   padding:15px;
   line-height:0.9;
+  border-radius: 10px;
 }
 
 .card-neighbors:hover {
-  opacity: 0.8;
+  background-color: rgba(0, 150, 136, 0.3);
 }
 
 .secondary-information {

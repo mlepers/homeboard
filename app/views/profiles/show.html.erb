@@ -1,18 +1,10 @@
 <div class="container">
-    <% if current_user == @user %>
-        <p class="text-center mt-4"><strong>My profile</strong></p>
-    <%else  %>
-        <p class="text-center mt-4"><strong>My neighbor</strong></p>
-    <% end %>
-
-
-
     <p>
         <div class="text-center mt-2 mb-4">
             <% if @user.photo.attachment.nil? %>
                 <%= image_tag('Avatar_default.jpeg', crop:"fill", class: "avatar-profile-show") %>
             <% else %>
-                <%= cl_image_tag @user.photo.key, height: 150, width: 200, crop: :fill, class: "avatar-profile-show"%>
+                <%= cl_image_tag @user.photo.key, height: 200, width: 200, crop: :fill, class: "avatar-profile-show"%>
             <% end %>
         </div>
 
@@ -76,7 +68,7 @@
                         <%= service.title %>
                     </div>
                     <div class="card-service-body">
-                    | from <%= service.start_at %> to <%= service.end_at %> | category : <%= service.category %>
+                    from <%= service.start_at %> to <%= service.end_at %>
                     </div>
                 </div>
             </div>
