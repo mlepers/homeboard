@@ -22,7 +22,7 @@
   <% end %>
 
     <% if @info_syndics.present? %>
-      <div id="alerts mt-5">
+      <div id="alerts" class="mt-5">
       <% @info_syndics.each do |info| %>
         <% if info.category == "alert" %>
           <div class="alert-red">
