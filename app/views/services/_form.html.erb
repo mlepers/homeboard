@@ -3,14 +3,28 @@
     <div class="form-login mt-2">
       <%= simple_form_for(service, remote: true, html: {id: :form_creation }) do |f| %>
       <div class="container">
-        <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["offer", "demand"]  %>
+      <div class="category-choices">
+        <input class="d-none" type="radio" value="demand" name="service[category]" id="service_category_demand" >
+        <label class="category-choice" for="service_category_demand" id="service_category_demand_btn">demand</label>
+      
+        <input class="d-none" type="radio" value="offer" name="service[category]" id="service_category_offer">
+        <label class="category-choice" for="service_category_offer" id="service_category_offer_btn">offer</label>
+      </div>  
         <%= f.input :title, placeholder: 'title', label:false %>
         <%= f.input :description, placeholder: 'description', label:false %>
         <i class="fas fa-calendar-week"></i>
         <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start" } %>
         <i class="fas fa-calendar-week"></i>
         <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end" }  %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+
+   
+        <div class="form-group file optional service_photos">
+          <label class="file optional" for="service_photos">Photos</label>
+          <input class="form-control-file file optional" multiple="multiple" type="file" name="service[photos][]" id="service_photos">
+        </div>
+
+        
         <%= f.button :submit, class: "button-green", id: "sweet-alert-created" %>
       </div>
       <% end %>
