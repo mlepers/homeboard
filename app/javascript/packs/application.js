@@ -33,6 +33,7 @@ import { pressEnterSubmit } from "../plugins/enterbutton"
 import { changeArrow } from "../plugins/arrow"
 import {changeCategory} from "../plugins/category_choice"
 import { initSweetalertCreated } from '../plugins/initSweetAlertCreated';
+import { initSweetalertPaid } from '../plugins/initSweetAlertCreated';
 import { alertAnimation } from "../plugins/alertAnimation"
 import { topMenu } from "../plugins/topmenu"
 
@@ -56,4 +57,13 @@ document.addEventListener('turbolinks:load', () => {
     button: 'Ok',
     confirmButtonColor: '#009688'
   });
+
+  initSweetalertPaid('#payment-validation', {
+    title: "Payment completed",
+    text: "You paid your condominium fees for the following period : 1st june to 31th august.",
+    icon: "success",
+    button: 'Ok',
+    confirmButtonColor: '#009688'
+  });
+
 });

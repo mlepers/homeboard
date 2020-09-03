@@ -1,12 +1,97 @@
+<div class="container mt-4">
+  <h1 class="text-center hide-1080px">My copro</h1>
+  <p class="text-center mt-4 mb-4 secondary-information">
+    <%= @residence.name %> - <%= @residence.address  %>
+  </p>
+  <% if @order %>
+   <div class="card-charges text-center">
+     <h5>Condominium fees</h5>
+     <p><strong>Period</strong> : From 1st june to 31th august.<br>Regulate before 31/09/2020<br>
+      <strong>Amount</strong> : <%= humanized_money_with_symbol(@charge.price) %></p>
+      <button id="pay" class="button-green">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @order.checkout_session_id %>'
+          });
+        });
+      </script>
+   </div>
+  <% else %>
+    <div class="card-charges text-center" id="payment-validation">
+     <h5>Condominium fees</h5>
+     Nothing to pay... You are up-to-date !
+   </div>
+  <% end %>
 
-  <div class="card-payment mt-5 text-center">
-        <h1>Condominium fees <small><span class="badge badge-pill badge-primary pb-3"><%= @order.state %></span></small></h1>
-        <ul class="list-unstyled">
-          <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-          <li><strong>FOR</strong> Period : From 1st june to 31th august.</li>
-          <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-          </li>
-        </ul>
-    </div>
-
-  <div class="mb-5 mt-5 button text-center"><%= link_to "Back to Copro", residence_path(current_user.residence), class: "without-decoration button-green"  %></div>
+    <% if @info_syndics.present? %>
+      <div id="alerts" class="mt-5">
+      <% @info_syndics.each do |info| %>
+        <% if info.category == "alert" %>
+          <div class="alert-red">
+            <strong><%= info.title %></strong>
+            <div><%= info.content %></div>
+            <div class="alert-body">
+              <% if info.file.attachment.present? %>
+                <%= link_to Cloudinary::Utils.download_zip_url({public_ids: [info.file.key]}) do %>
+                  <i class="fas fa-file-download"></i>
+                <% end %>
+              <% else %>
+                <div></div>
+              <% end %>
+              <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
+          </div>
+        <% else %>
+          <div class="alert-green">
+            <strong><%= info.title %></strong>
+            <div><%= info.content %></div>
+            <div class="alert-body">
+              <% if info.file.attachment.present? %>
+                <a class="button-green" href="<%= Cloudinary::Utils.download_zip_url({public_ids: [info.file.key]}) %>">Download</a>
+              <% else %>
+                <div></div>
+              <% end %>
+              <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="text-center">
+    <h6 class="mt-5">My syndic contact</h6>
+    <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598537789/stephane-plaza-dyspraxie-isopix_kikbtf.jpg', crop:"fill", class: "img-copro") %>
+    <p>
+      <strong>Stéphane Plazza</strong>
+      <br>
+      <%= link_to "mailto:test@test.com"  do%>
+        <i class="fas fa-envelope"></i>
+      <%end  %>
+    </p>
+    <p>
+      Stéphane Plaza immobilier Lille<br>
+      55 Boulevard de la Liberté, 59000 Lille -
+      +33 (0)3 20 56 33 34
+    </p>
+      <hr class="pt-2 pb-1" style="width:60%;text-align:center;">
+  </div>
+   <div class="text-center">
+    <h6 class="mt-5">My owner council contact</h6>
+    <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598538790/download_emaje2.jpg', crop:"fill", class: "img-copro") %>
+    <p>
+      <strong>Jenny Labrosse</strong><br>
+      <%= link_to "mailto:test@test.com"  do%>
+        <i class="fas fa-envelope"></i>
+      <%end  %>
+    </p>
+    <p>
+      President of owner council - <%= @residence.name %><br>
+      <%= @residence.address  %> -
+      +33 (0)3 20 51 22 43
+    </p>
+  </div>
+</div>
