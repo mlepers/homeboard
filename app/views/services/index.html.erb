@@ -12,6 +12,13 @@
       </div>
       <div class="collapse" id="collapseInfos">
         <%= @alert.content %>
+        <div>
+          <% if @alert.file.attachment.present? %>
+            <%= link_to Cloudinary::Utils.download_zip_url({public_ids: [@alert.file.key]}) do %>
+              <i class="fas fa-file-download"></i>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

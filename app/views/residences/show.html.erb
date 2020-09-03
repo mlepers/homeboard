@@ -25,15 +25,33 @@
       <% @info_syndics.each do |info| %>
         <% if info.category == "alert" %>
           <div class="alert-red">
+            <strong><%= info.title %></strong>
+            <div><%= info.content %></div>
+            <div class="alert-body">
+              <% if info.file.attachment.present? %>
+                <%= link_to Cloudinary::Utils.download_zip_url({public_ids: [info.file.key]}) do %>
+                  <i class="fas fa-file-download"></i>
+                <% end %>
+              <% else %>
+                <div></div>
+              <% end %>
+              <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
+          </div>
         <% else %>
           <div class="alert-green">
-        <% end %>
-          <strong><%= info.title %></strong>
-          <div class="alert-body">
+            <strong><%= info.title %></strong>
             <div><%= info.content %></div>
-            <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            <div class="alert-body">
+              <% if info.file.attachment.present? %>
+                <a class="button-green" href="<%= Cloudinary::Utils.download_zip_url({public_ids: [info.file.key]}) %>">Download</a>
+              <% else %>
+                <div></div>
+              <% end %>
+              <small class="align-self-end"><%= info.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>
