@@ -227,7 +227,6 @@
   }
 }
 
-<<<<<<< HEAD
 .category-choices {
   display: flex;
   justify-content: space-around;
@@ -258,23 +257,3 @@
 .input #file-upload-button{
   display: none !important;
 }
-=======
-.button-alerts{
-  color: white;
-  background-color: $green-homeboard;
-  border-color: $green-homeboard;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  text-align: center;
-  padding: 5px 12px 5px 12px;
-  text-decoration: none !important;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  width: 110px;
-  &:hover {
-    color:white;
-    background-color: rgb(224, 75, 75);
-    border-color: solid red;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
-}
->>>>>>> ed062f750ce248b8e63e423e580f0c6559f93aa1
