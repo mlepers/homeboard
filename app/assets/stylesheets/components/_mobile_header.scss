@@ -15,7 +15,8 @@
   }
 }
 
-#header{
+@media(max-width: 1080px) {
+  #header{
   position: fixed;
   left: 0;
   right: 0;
@@ -24,6 +25,7 @@
   transition-delay: 0.2s;
   height: 80px;
   z-index: 5;
+}
 }
 
 #header.hidden {
