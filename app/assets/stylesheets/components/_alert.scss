@@ -38,6 +38,12 @@
 .alert-body {
   display: flex;
   justify-content: space-between;
+  a {
+    color: inherit;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
 .img-copro {
@@ -65,6 +71,14 @@
   display: none;
 }
 
+#collapseInfos {
+  a {
+    color: inherit;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
 
 /**@keyframes hide {
   0% {

@@ -28,6 +28,6 @@ class InfoSyndicsController < ApplicationController
   private
 
   def info_syndic_params
-    params.require(:info_syndic).permit(:title, :content, :category, :seen, :residence, :user)
+    params.require(:info_syndic).permit(:title, :content, :category, :seen, :residence, :user, :file)
   end
 end

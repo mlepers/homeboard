@@ -14,3 +14,23 @@
     display: none;
   }
 }
+
+#header{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition: top 0.3s;
+  transition-delay: 0.2s;
+  z-index: 5;
+}
+
+#header.hidden {
+  top: -80px;
+}
+
+@media(max-width: 1080px) {
+  .mobile-topspace{
+    margin-top:80px;
+  }
+}

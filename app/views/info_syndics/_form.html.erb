@@ -6,6 +6,7 @@
         <%= f.input :category, as: :radio_buttons, wrapper: :vertical_collection_inline, collection: ["alert", "info"]  %>
         <%= f.input :title %>
         <%= f.input :content %>
+        <%= f.input :file, as: :file %>
         <%= f.button :submit, class: "button-green" %>
       </div>
       <% end %>
