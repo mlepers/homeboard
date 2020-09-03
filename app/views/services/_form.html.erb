@@ -23,10 +23,16 @@
       </div>  
         <%= f.input :title, placeholder: 'title', label:false %>
         <%= f.input :description, placeholder: 'description', label:false %>
-        <i class="fas fa-calendar-week"></i>
-        <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start" } %>
-        <i class="fas fa-calendar-week"></i>
-        <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end" }  %>
+        <div class= "d-flex">
+          <i class="fas fa-calendar-week mr-2"></i>
+          <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start" } %>
+        </div>
+
+        <div class= "d-flex">
+          <i class="fas fa-calendar-week mr-2"></i>
+          <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end" }  %>
+        </div>
+
         <%= f.input :photos, as: :file, input_html: { class: 'd-none', multiple: true, id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>          
           <p id = "photo-preview", class = "d-none text-success" >Uploaded! <i class="fas fa-smile"></i></p>
         <%= f.button :submit, class: "button-green", id: "sweet-alert-created" %>
