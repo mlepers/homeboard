@@ -16,15 +16,7 @@
         <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start" } %>
         <i class="fas fa-calendar-week"></i>
         <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end" }  %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-
-   
-        <div class="form-group file optional service_photos">
-          <label class="file optional" for="service_photos">Photos</label>
-          <input class="form-control-file file optional" multiple="multiple" type="file" name="service[photos][]" id="service_photos">
-        </div>
-
-        
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>  
         <%= f.button :submit, class: "button-green", id: "sweet-alert-created" %>
       </div>
       <% end %>
