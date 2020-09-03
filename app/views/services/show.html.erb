@@ -24,7 +24,9 @@
   </div>
 
   <% if @service.photos.count == 0 %>
-    <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598870874/b39976389dafbe5bde3603f2d21bd4a9_ypm9ks.jpg', height: 300, width: 400, crop: :fill, class: 'd-block rounded mx-auto') %>
+    <div class="photo-service">
+      <%= image_tag('https://res.cloudinary.com/dow6rowa0/image/upload/v1598870874/b39976389dafbe5bde3603f2d21bd4a9_ypm9ks.jpg', height: 300, width: 400, crop: :fill, class: 'd-block rounded mx-auto') %>
+    </div>
   <% end %>
 
   <% unless @service.photos.count == 0 %>
