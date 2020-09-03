@@ -8,6 +8,7 @@
      <h5>Condominium fees</h5>
      <p><strong>Period</strong> : From 1st june to 31th august.<br>Regulate before 31/09/2020<br>
       <strong>Amount</strong> : <%= humanized_money_with_symbol(@charge.price) %></p>
+      <button id="pay" class="button-green">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
