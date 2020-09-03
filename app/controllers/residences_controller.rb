@@ -4,9 +4,9 @@ class ResidencesController < ApplicationController
 
     def show
         @info_syndics = current_user.info_syndics.order("info_syndics.created_at DESC")
-        if @condition = current_user.charges.first
-            @charge = Charge.find(current_user.charges.first.id)
-        end    
+        if (@condition = current_user.charges.first)
+          @charge = Charge.find(current_user.charges.first.id)
+        end
         authorize @residence
         @title = "Copro"
     end

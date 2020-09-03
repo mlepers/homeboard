@@ -4,8 +4,7 @@
 <p class="text-center mt-4 mb-4 secondary-information">
     <%= @residence.name %> - <%= @residence.address  %>
   </p>
-
-  <% if @condition %>
+  <% if @charge %>
    <div class="card-charges text-center">
      <h5>Condominium fees</h5>
      <p><strong>Period</strong> : From 1st june to 31th august.<br>Regulate before 31/09/2020<br>
@@ -22,8 +21,8 @@
    </div>
   <% end %>
 
-  <div id="alerts">
     <% if @info_syndics.present? %>
+      <div id="alerts" class="mt-5">
       <% @info_syndics.each do |info| %>
         <% if info.category == "alert" %>
           <div class="alert-red">
