@@ -6,7 +6,7 @@
       <% if params[:controller] == "profiles" && params[:action] == "index" %>
         <div class="searchflex">
           <%= form_tag profiles_path, method: :get, class: "d-flex" do %>
-              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a neighbour" %>
+              <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a neighbor" %>
                 <%= button_tag :submit, class: "btn search" do %>
                   <i class="fas fa-search" style="color: white;"></i>
                 <% end %>
