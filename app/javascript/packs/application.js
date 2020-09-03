@@ -31,6 +31,7 @@ import { scrollLastMessage } from "../channels/chatroom_channel";
 import { initNotificationCable } from "../channels/notification_channel";
 import { pressEnterSubmit } from "../plugins/enterbutton"
 import { changeArrow } from "../plugins/arrow"
+import {changeCategory} from "../plugins/category_choice"
 import { initSweetalertCreated } from '../plugins/initSweetAlertCreated';
 import { alertAnimation } from "../plugins/alertAnimation"
 import { topMenu } from "../plugins/topmenu"
@@ -46,6 +47,8 @@ document.addEventListener('turbolinks:load', () => {
   initNotificationCable();
   changeArrow();
   topMenu();
+  changeCategory();
+
   initSweetalertCreated('#sweet-alert-created', {
     title: "Service Created",
     text: "Well done, you created a new service for the community.",
