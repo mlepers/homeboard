@@ -1,13 +1,12 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Condominium fees <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
-        <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>FOR</strong> Period : From 1st june to 31th august.</li>
-        <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
-        </li>
-      </ul>
+
+  <div class="card-payment mt-5 text-center">
+        <h1>Condominium fees <small><span class="badge badge-pill badge-primary pb-3"><%= @order.state %></span></small></h1>
+        <ul class="list-unstyled">
+          <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
+          <li><strong>FOR</strong> Period : From 1st june to 31th august.</li>
+          <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
+          </li>
+        </ul>
     </div>
-  </div>
-</div>
+
+  <div class="mb-5 mt-5 button text-center"><%= link_to "Back to Copro", residence_path(current_user.residence), class: "without-decoration button-green"  %></div>
