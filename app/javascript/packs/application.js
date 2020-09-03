@@ -34,7 +34,7 @@ import { changeArrow } from "../plugins/arrow"
 import {changeCategory} from "../plugins/category_choice"
 import { initSweetalertCreated } from '../plugins/initSweetAlertCreated';
 import { alertAnimation } from "../plugins/alertAnimation"
-import { topmenu } from "../plugins/topmenu"
+import { topMenu } from "../plugins/topmenu"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -46,7 +46,9 @@ document.addEventListener('turbolinks:load', () => {
   pressEnterSubmit();
   initNotificationCable();
   changeArrow();
+  topMenu();
   changeCategory();
+
   initSweetalertCreated('#sweet-alert-created', {
     title: "Service Created",
     text: "Well done, you created a new service for the community.",
