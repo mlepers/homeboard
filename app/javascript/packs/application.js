@@ -33,6 +33,7 @@ import { pressEnterSubmit } from "../plugins/enterbutton"
 import { changeArrow } from "../plugins/arrow"
 import { initSweetalertCreated } from '../plugins/initSweetAlertCreated';
 import { alertAnimation } from "../plugins/alertAnimation"
+import { topmenu } from "../plugins/topmenu"
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';

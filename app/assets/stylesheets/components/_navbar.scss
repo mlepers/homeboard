@@ -51,3 +51,10 @@
     display: none;
   }
 }
+
+@media(max-width: 1080px) {
+  .margin-page-without-topmenu{
+    margin-top: -80px;
+  }
+}
+
