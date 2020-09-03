@@ -3,12 +3,23 @@
     <div class="form-login mt-2">
       <%= simple_form_for(service, remote: true, html: {id: :form_creation }) do |f| %>
       <div class="container">
+      <p class="text-center mt-2">What would you like to propose? </p>
       <div class="category-choices">
-        <input class="d-none" type="radio" value="demand" name="service[category]" id="service_category_demand" >
-        <label class="category-choice" for="service_category_demand" id="service_category_demand_btn">demand</label>
+        
+        
       
         <input class="d-none" type="radio" value="offer" name="service[category]" id="service_category_offer">
-        <label class="category-choice" for="service_category_offer" id="service_category_offer_btn">offer</label>
+        <label class="category-choice-offer" for="service_category_offer" id="service_category_offer_btn">
+          <i class="fas fa-smile-wink fa-3x"></i> 
+          <p>Offer</p>
+        </label>
+
+        <input class="d-none" type="radio" value="demand" name="service[category]" id="service_category_demand" >
+        <label class="category-choice-demand" for="service_category_demand" id="service_category_demand_btn">
+          <i class="fas fa-hands-helping fa-3x"></i>
+          <p>Demand</p>
+        </label>
+
       </div>  
         <%= f.input :title, placeholder: 'title', label:false %>
         <%= f.input :description, placeholder: 'description', label:false %>
@@ -16,11 +27,11 @@
         <%= f.input :start_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_start" } %>
         <i class="fas fa-calendar-week"></i>
         <%= f.input :end_at, as: :string, required: false, input_html: {class: "datepicker", id: "range_end" }  %>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>  
+        <%= f.input :photos, as: :file, input_html: { class: 'd-none', multiple: true, id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>          
+          <p id= "photo-preview", class = "d-none text-success" >Uploaded! <i class="fas fa-smile"></i></p>
         <%= f.button :submit, class: "button-green", id: "sweet-alert-created" %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
-
