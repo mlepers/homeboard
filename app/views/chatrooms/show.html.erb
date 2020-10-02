@@ -4,7 +4,7 @@
       <h1 class="text-center mt-4 mb-4" id="chat-title"><%= @other.pseudo %></h1>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
         <% if @messages.empty?  %>
-          <p class="font-italic" id="no-message">There is no messages for the moment .... Go ahead and talk !</p>
+          <p class="font-italic" id="no-message">There is no messages for the moment ..... Go ahead and talk !</p>
         <% else %>
           <% @messages.each do |message| %>
             <%= render 'messages/message', message: message %>
